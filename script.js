@@ -154,4 +154,129 @@ function renderTools() {
 
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('es-
+    return new Date(dateString).toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', options);
+}
+
+function sortTools(criteria) {
+    switch(criteria) {
+        case 'alphabetical':
+            filteredTools.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        case 'date':
+            filteredTools.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+            break;
+        case 'rating':
+            filteredTools.sort((a, b) => b.rating - a.rating);
+            break;
+        case 'usage':
+            filteredTools.sort((a, b) => b.usageCount - a.usageCount);
+            break;
+    }
+    renderTools();
+}
+
+function filterTools() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const subjectFilter = document.getElementById('subjectFilter').value;
+    const levelFilter = document.getElementById('levelFilter').value;
+    const typeFilter = document.getElementById('typeFilter').value;
+
+    filteredTools = tools.filter(tool => {
+        const matchesSearch = tool.title.toLowerCase().includes(searchTerm) || 
+                            tool.description.toLowerCase().includes(searchTerm);
+        const matchesSubject = !subjectFilter || tool.subjects.includes(subjectFilter);
+        const matchesLevel = !levelFilter || tool.level === levelFilter;
+        const matchesType = !typeFilter || tool.type === typeFilter;
+
+        return matchesSearch && matchesSubject && matchesLevel && matchesType;
+    });
+
+    sortTools(currentSort);
+}
+
+function toggleLanguage() {
+    currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+    
+    // Actualizar todos los elementos con data-es y data-en
+    document.querySelectorAll('[data-es][data-en]').forEach(element => {
+        if (element.tagName === 'INPUT' && element.type === 'text') {
+            element.placeholder = element.getAttribute(`data-placeholder-${currentLanguage}`);
+        } else {
+            element.textContent = element.getAttribute(`data-${currentLanguage}`);
+        }
+    });
+    
+    // Actualizar el título principal con animación
+    const titleWords = document.querySelectorAll('.title-word');
+    titleWords.forEach((word, index) => {
+        setTimeout(() => {
+            word.style.transform = 'rotateY(180deg) scale(0.8)';
+            setTimeout(() => {
+                word.textContent = word.getAttribute(`data-${currentLanguage}`);
+                word.style.transform = 'rotateY(0deg) scale(1)';
+            }, 300);
+        }, index * 100);
+    });
+    
+    // Actualizar el botón de idioma
+    const langBtn = document.getElementById('languageBtn');
+    if (currentLanguage === 'en') {
+        langBtn.innerHTML = '🇪🇸 ES';
+        langBtn.title = 'Cambiar a español';
+        document.documentElement.lang = 'en';
+    } else {
+        langBtn.innerHTML = '🇬🇧 EN';
+        langBtn.title = 'Switch to English';
+        document.documentElement.lang = 'es';
+    }
+    
+    // Actualizar el título de la página
+    document.title = currentLanguage === 'es' ? 
+        'Herramientas de Español - Universidad de Hong Kong' : 
+        'Spanish Learning Tools - University of Hong Kong';
+    
+    // Re-renderizar las herramientas con el nuevo idioma
+    renderTools();
+}
+
+function changeView(viewType) {
+    const grid = document.getElementById('toolsGrid');
+    currentView = viewType;
+    
+    // Actualizar clases del grid
+    grid.className = `tools-grid ${viewType}-view`;
+    
+    // Actualizar botones activos
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.view === viewType) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+// Event listeners
+document.getElementById('searchInput').addEventListener('input', filterTools);
+document.getElementById('subjectFilter').addEventListener('change', filterTools);
+document.getElementById('levelFilter').addEventListener('change', filterTools);
+document.getElementById('typeFilter').addEventListener('change', filterTools);
+
+document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSort = btn.dataset.sort;
+        sortTools(currentSort);
+    });
+});
+
+document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        changeView(btn.dataset.view);
+    });
+});
+
+document.getElementById('languageBtn').addEventListener('click', toggleLanguage);
+
+// Inicializar la página
+renderTools();
