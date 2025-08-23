@@ -253,7 +253,7 @@ function filterTools() {
 
     sortTools(currentSort);
 }
-/ Función para cargar contadores guardados
+
 function loadUsageCounts() {
     tools.forEach(tool => {
         const count = parseInt(localStorage.getItem(`tool_usage_${tool.id}`) || '0');
