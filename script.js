@@ -238,7 +238,19 @@ function toggleLanguage() {
     // Re-renderizar las herramientas con el nuevo idioma
     renderTools();
 }
-
+// Función para inicializar las letras del título
+function initializeTitle() {
+    const titleWord = document.querySelector('.title-word');
+    const titleText = titleWord.textContent;
+    titleWord.innerHTML = '';
+    
+    titleText.split('').forEach(letter => {
+        const letterSpan = document.createElement('span');
+        letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
+        letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
+        titleWord.appendChild(letterSpan);
+    });
+}
 function changeView(viewType) {
     const grid = document.getElementById('toolsGrid');
     currentView = viewType;
@@ -279,4 +291,5 @@ document.querySelectorAll('.view-btn').forEach(btn => {
 document.getElementById('languageBtn').addEventListener('click', toggleLanguage);
 
 // Inicializar la página
+initializeTitle();
 renderTools();
