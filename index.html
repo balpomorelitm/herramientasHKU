@@ -1,74 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herramientas de Español - Universidad de Hong Kong</title>
+    <title>Spanish Learning Tools - University of Hong Kong</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&family=Knewave&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&family=Knewave&family=Darumadrop+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1 class="main-title" id="mainTitle">
-                <span class="title-word" data-es="HERRAMIENTAS PARA APRENDER ESPAÑOL" data-en="SPANISH LEARNING TOOLS">HERRAMIENTAS PARA APRENDER ESPAÑOL</span>
+                <span class="title-word" data-es="HERRAMIENTAS PARA APRENDER ESPAÑOL" data-en="SPANISH LEARNING TOOLS">SPANISH LEARNING TOOLS</span>
             </h1>
-            <p class="subtitle" data-es="Departamento de Español, SMLC, HKU" data-en="From the Spanish Department, SMLC, HKU">Departamento de Español, SMLC, HKU</p>
+            <p class="subtitle" data-es="Departamento de Español, SMLC, HKU" data-en="Spanish Department, SMLC, HKU">Spanish Department, SMLC, HKU</p>
         </div>
 
         <div class="controls">
-            <input type="text" class="search-bar" placeholder="Buscar herramientas..." data-placeholder-es="Buscar herramientas..." data-placeholder-en="Search tools..." id="searchInput">
+            <input type="text" class="search-bar" placeholder="Search tools..." data-placeholder-es="Buscar herramientas..." data-placeholder-en="Search tools..." id="searchInput">
             
             <div class="filters">
                 <div class="filter-group">
-                    <label data-es="Asignatura:" data-en="Subject:">Asignatura:</label>
+                    <label data-es="Asignatura:" data-en="Subject:">Subject:</label>
                     <select id="subjectFilter">
-                        <option value="" data-es="Todas" data-en="All">Todas</option>
+                        <option value="" data-es="Todas" data-en="All">All</option>
                         <option value="SPAN1001">SPAN1001</option>
                         <option value="SPAN2001">SPAN2001</option>
                         <option value="General" data-es="General" data-en="General">General</option>
-                        <option value="Gramática" data-es="Gramática" data-en="Grammar">Gramática</option>
-                        <option value="Vocabulario" data-es="Vocabulario" data-en="Vocabulary">Vocabulario</option>
+                        <option value="Gramática" data-es="Gramática" data-en="Grammar">Grammar</option>
+                        <option value="Vocabulario" data-es="Vocabulario" data-en="Vocabulary">Vocabulary</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label data-es="Nivel:" data-en="Level:">Nivel:</label>
+                    <label data-es="Nivel:" data-en="Level:">Level:</label>
                     <select id="levelFilter">
-                        <option value="" data-es="Todos" data-en="All">Todos</option>
+                        <option value="" data-es="Todos" data-en="All">All</option>
                         <option value="A1">A1</option>
                         <option value="A2">A2</option>
                         <option value="B1">B1</option>
                         <option value="B2">B2</option>
-                        <option value="Todos los niveles" data-es="Todos los niveles" data-en="All levels">Todos los niveles</option>
+                        <option value="Todos los niveles" data-es="Todos los niveles" data-en="All levels">All levels</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label data-es="Tipo:" data-en="Type:">Tipo:</label>
+                    <label data-es="Tipo:" data-en="Type:">Type:</label>
                     <select id="typeFilter">
-                        <option value="" data-es="Todos" data-en="All">Todos</option>
-                        <option value="Juego" data-es="Juego" data-en="Game">Juego</option>
-                        <option value="Ejercicio" data-es="Ejercicio" data-en="Exercise">Ejercicio</option>
-                        <option value="Recurso" data-es="Recurso" data-en="Resource">Recurso</option>
+                        <option value="" data-es="Todos" data-en="All">All</option>
+                        <option value="Juego" data-es="Juego" data-en="Game">Game</option>
+                        <option value="Ejercicio" data-es="Ejercicio" data-en="Exercise">Exercise</option>
+                        <option value="Recurso" data-es="Recurso" data-en="Resource">Resource</option>
                     </select>
                 </div>
             </div>
 
             <div class="controls-row">
                 <div class="sort-options">
-                    <button class="sort-btn active" data-sort="alphabetical" data-es="Alfabético" data-en="Alphabetical">Alfabético</button>
-                    <button class="sort-btn" data-sort="date" data-es="Fecha" data-en="Date">Fecha</button>
-                    <button class="sort-btn" data-sort="rating" data-es="Valoración" data-en="Rating">Valoración</button>
-                    <button class="sort-btn" data-sort="usage" data-es="Más usadas" data-en="Most Used">Más usadas</button>
+                    <button class="sort-btn active" data-sort="alphabetical" data-es="Alfabético" data-en="Alphabetical">Alphabetical</button>
+                    <button class="sort-btn" data-sort="date" data-es="Fecha" data-en="Date">Date</button>
+                    <button class="sort-btn" data-sort="rating" data-es="Valoración" data-en="Rating">Rating</button>
+                    <button class="sort-btn" data-sort="usage" data-es="Más usadas" data-en="Most Used">Most Used</button>
                 </div>
 
                 <div class="right-controls">
                     <div class="view-options">
-                        <label data-es="Vista:" data-en="View:">Vista:</label>
-                        <button class="view-btn active" data-view="card" data-es="Vista tarjetas" data-en="Card view" title="Vista tarjetas">
+                        <label data-es="Vista:" data-en="View:">View:</label>
+                        <button class="view-btn active" data-view="card" data-es="Vista tarjetas" data-en="Card view" title="Card view">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="3" y="3" width="7" height="9" rx="1"/>
                                 <rect x="14" y="3" width="7" height="5" rx="1"/>
@@ -76,7 +76,7 @@
                                 <rect x="3" y="16" width="7" height="5" rx="1"/>
                             </svg>
                         </button>
-                        <button class="view-btn" data-view="grid" data-es="Vista cuadrícula" data-en="Grid view" title="Vista cuadrícula">
+                        <button class="view-btn" data-view="grid" data-es="Vista cuadrícula" data-en="Grid view" title="Grid view">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="3" y="3" width="7" height="7" rx="1"/>
                                 <rect x="14" y="3" width="7" height="7" rx="1"/>
@@ -87,15 +87,15 @@
                     </div>
 
                     <div class="theme-toggle">
-                        <button id="themeBtn" class="theme-btn" title="Cambiar a modo oscuro" data-tooltip-light="Cambiar a modo oscuro" data-tooltip-dark="Cambiar a modo claro">
+                        <button id="themeBtn" class="theme-btn" title="Switch to dark mode" data-tooltip-light="Switch to dark mode" data-tooltip-dark="Switch to light mode">
                             <span class="sun-icon">☀️</span>
                             <span class="moon-icon">🌙</span>
                         </button>
                     </div>
 
                     <div class="language-toggle">
-                        <button id="languageBtn" class="lang-btn" title="Switch to English">
-                            🇬🇧 EN
+                        <button id="languageBtn" class="lang-btn" title="Cambiar a español">
+                            🇪🇸 ES
                         </button>
                     </div>
                 </div>
@@ -103,11 +103,11 @@
         </div>
 
         <div class="tools-grid card-view" id="toolsGrid">
-            <!-- Las herramientas se generarán dinámicamente -->
+            <!-- Tools will be generated dynamically -->
         </div>
 
         <div class="stats" id="stats">
-            <span id="toolCount">7</span> <span data-es="herramientas disponibles" data-en="tools available">herramientas disponibles</span>
+            <span id="toolCount">7</span> <span data-es="herramientas disponibles" data-en="tools available">tools available</span>
         </div>
 
         <footer class="footer">
