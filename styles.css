@@ -543,3 +543,6 @@ select:focus {
         order: 1;
     }
 }
+.tool-card:hover {
+    animation: cardPulse 2s infinite;
+}
