@@ -6,9 +6,17 @@
 
 body {
     font-family: 'Zain', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #008c45 0%, #006837 50%, #003d21 100%);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 25%, #42a5f5 50%, #ab47bc 75%, #66bb6a 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease-in-out infinite;
     min-height: 100vh;
     padding: 20px;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -21,12 +29,20 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #c8102e 0%, #b80e26 50%, #a00c1e 100%);
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b9d 25%, #c44569 50%, #f8b500 75%, #ff6348 100%);
+    background-size: 400% 400%;
+    animation: headerGradient 6s ease-in-out infinite;
     color: white;
     padding: 60px 30px 40px;
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+@keyframes headerGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .header::before {
@@ -46,60 +62,60 @@ body {
 }
 
 .main-title {
-    font-family: 'Jua', cursive;
-    font-size: 3.5rem;
+    font-family: 'Knewave', cursive;
+    font-size: 3.2rem;
     margin: 0 0 20px 0;
     font-weight: 400;
     cursor: pointer;
     perspective: 1000px;
     display: inline-block;
+    line-height: 1.2;
 }
 
 .title-word {
     display: inline-block;
-    margin: 0 0.3em;
     position: relative;
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.title-letter {
+    display: inline-block;
+    margin: 0 0.05em;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-origin: center bottom;
+    cursor: pointer;
 }
 
-.title-word:hover {
-    transform: rotateY(360deg) scale(1.2);
-    color: #ffd700;
+.title-letter:nth-child(odd) {
+    color: #ffd700; /* Amarillo */
     text-shadow: 
-        0 0 20px rgba(255, 215, 0, 0.8),
-        0 0 40px rgba(255, 215, 0, 0.6),
-        0 0 60px rgba(255, 215, 0, 0.4);
+        2px 2px 0px #cc7a00,
+        4px 4px 8px rgba(0,0,0,0.3);
 }
 
-.title-word::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
+.title-letter:nth-child(even) {
+    color: #ff4757; /* Rojo */
+    text-shadow: 
+        2px 2px 0px #c8102e,
+        4px 4px 8px rgba(0,0,0,0.3);
 }
 
-.title-word:hover::before {
-    opacity: 1;
-    animation: pulse 0.6s ease-in-out;
+.title-letter:hover {
+    transform: scale(1.3) rotate(10deg);
+    animation: letterShake 0.5s ease-in-out;
+    z-index: 10;
 }
 
-@keyframes pulse {
-    0% { transform: scale(0.8); opacity: 0; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
+.title-letter.space {
+    margin: 0 0.3em;
 }
 
-.title-word:nth-child(1) { animation-delay: 0.1s; }
-.title-word:nth-child(2) { animation-delay: 0.2s; }
-.title-word:nth-child(3) { animation-delay: 0.3s; }
+@keyframes letterShake {
+    0%, 100% { transform: scale(1.3) rotate(10deg); }
+    25% { transform: scale(1.4) rotate(-8deg); }
+    50% { transform: scale(1.5) rotate(12deg); }
+    75% { transform: scale(1.3) rotate(-6deg); }
+}
 
 .subtitle {
     font-family: 'Zain', sans-serif;
@@ -468,6 +484,24 @@ select:focus {
     font-size: 0.9rem;
 }
 
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 3px solid #ff6348;
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+    filter: brightness(1.1);
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
     .tools-grid.card-view {
         grid-template-columns: 1fr;
@@ -498,10 +532,6 @@ select:focus {
     
     .main-title {
         font-size: 2.5rem !important;
-    }
-    
-    .title-word {
-        margin: 0 0.2em;
     }
 
     .sort-options {
