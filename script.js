@@ -183,7 +183,12 @@ function renderTools() {
                 <span class="tag level">${tool.level}</span>
             </div>
             <div class="tool-footer">
-                <a href="${tool.link}" target="_blank" class="visit-btn">${translations.access[currentLanguage]}</a>
+                <a href="${tool.link}" 
+                   target="_blank" 
+                   class="visit-btn" 
+                   onclick="incrementUsage(${tool.id}, '${tool.title.replace(/'/g, "\\'")}'); return true;">
+                   ${translations.access[currentLanguage]}
+                </a>
                 <div class="rating">
                     <div class="stars">${'★'.repeat(Math.floor(tool.rating))}${tool.rating % 1 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(tool.rating))}</div>
                     <span class="usage-count">(${tool.usageCount} ${translations.uses[currentLanguage]})</span>
@@ -195,6 +200,18 @@ function renderTools() {
     toolCount.textContent = filteredTools.length;
 }
 
+// Añadir botón de estadísticas en la página (opcional)
+function addStatsButton() {
+    const statsButton = document.createElement('button');
+    statsButton.textContent = '📊 Ver Estadísticas';
+    statsButton.className = 'sort-btn';
+    statsButton.onclick = () => {
+        const stats = getUsageStats();
+        alert(`Herramientas más usadas:\n${stats.slice(0,5).map((s,i) => `${i+1}. ${s.name}: ${s.clicks} clicks`).join('\n')}`);
+    };
+    
+    document.querySelector('.sort-options').appendChild(statsButton);
+}
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', options);
@@ -236,7 +253,65 @@ function filterTools() {
 
     sortTools(currentSort);
 }
+/ Función para cargar contadores guardados
+function loadUsageCounts() {
+    tools.forEach(tool => {
+        const count = parseInt(localStorage.getItem(`tool_usage_${tool.id}`) || '0');
+        tool.usageCount = count;
+    });
+}
 
+// Función para incrementar y guardar contador
+function incrementUsage(toolId, toolName) {
+    const key = `tool_usage_${toolId}`;
+    const currentCount = parseInt(localStorage.getItem(key) || '0');
+    const newCount = currentCount + 1;
+    
+    // Guardar en localStorage
+    localStorage.setItem(key, newCount.toString());
+    
+    // Actualizar en memoria
+    const tool = tools.find(t => t.id === toolId);
+    if (tool) {
+        tool.usageCount = newCount;
+    }
+    
+    // Analytics opcional (si tienes Google Analytics)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'tool_access', {
+            'tool_name': toolName,
+            'usage_count': newCount
+        });
+    }
+    
+    // Re-renderizar para mostrar contador actualizado
+    renderTools();
+    
+    // Log para debugging
+    console.log(`${toolName} usado ${newCount} veces`);
+}
+
+// Función para obtener estadísticas
+function getUsageStats() {
+    const stats = tools.map(tool => ({
+        name: tool.title,
+        clicks: tool.usageCount,
+        rating: tool.rating
+    })).sort((a, b) => b.clicks - a.clicks);
+    
+    console.table(stats);
+    return stats;
+}
+
+// Función para resetear contadores (para testing)
+function resetAllCounters() {
+    tools.forEach(tool => {
+        localStorage.removeItem(`tool_usage_${tool.id}`);
+        tool.usageCount = 0;
+    });
+    renderTools();
+    console.log('Todos los contadores reseteados');
+}
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
     
@@ -346,6 +421,6 @@ document.getElementById('languageBtn').addEventListener('click', toggleLanguage)
 document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 
 // Inicializar la página
-loadSavedTheme();
+loadUsageCounts();  // Cargar contadores guardados
 initializeTitle();
 renderTools();
