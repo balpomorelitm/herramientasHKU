@@ -655,3 +655,71 @@ body:not([data-theme="dark"]) .moon-icon {
         order: 1;
     }
 }
+@media (max-width: 768px) {
+    .tools-grid.card-view {
+        grid-template-columns: 1fr;
+    }
+    
+    .tools-grid.grid-view {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .controls-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .right-controls {
+        justify-content: space-between;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        justify-content: space-between;
+    }
+    
+    .main-title {
+        font-size: 1.8rem !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Arreglo específico para el título en español */
+    .title-word[data-es="HERRAMIENTAS PARA APRENDER ESPAÑOL"] {
+        word-spacing: 0.5em;
+    }
+
+    /* Usar CSS para romper el título en puntos específicos */
+    .title-letter.space:nth-of-type(12), /* Después de "PARA" */
+    .title-letter.space:nth-of-type(21) { /* Después de "APRENDER" */
+        display: block;
+        height: 0.2em;
+    }
+
+    .sort-options {
+        justify-content: center;
+        order: 2;
+    }
+
+    .right-controls {
+        order: 1;
+    }
+}
+
+/* Alternativa más elegante - usando CSS hyphens */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem !important;
+        hyphens: auto;
+        word-break: break-word;
+    }
+    
+    .title-word {
+        hyphens: auto;
+        overflow-wrap: break-word;
+    }
+}
