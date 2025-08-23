@@ -89,7 +89,7 @@ const tools = [
 let filteredTools = [...tools];
 let currentSort = 'alphabetical';
 let currentView = 'card';
-let currentLanguage = 'es';
+let currentLanguage = 'en'; // Cambiado a inglés por defecto
 let currentTheme = 'light';
 
 // Traducciones
@@ -152,9 +152,9 @@ function toggleTheme() {
 function updateThemeButton() {
     const themeBtn = document.getElementById('themeBtn');
     if (currentTheme === 'dark') {
-        themeBtn.title = themeBtn.getAttribute('data-tooltip-dark') || 'Cambiar a modo claro';
+        themeBtn.title = themeBtn.getAttribute('data-tooltip-dark') || 'Switch to light mode';
     } else {
-        themeBtn.title = themeBtn.getAttribute('data-tooltip-light') || 'Cambiar a modo oscuro';
+        themeBtn.title = themeBtn.getAttribute('data-tooltip-light') || 'Switch to dark mode';
     }
 }
 
