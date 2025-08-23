@@ -90,6 +90,7 @@ let filteredTools = [...tools];
 let currentSort = 'alphabetical';
 let currentView = 'card';
 let currentLanguage = 'es';
+let currentTheme = 'light';
 
 // Traducciones
 const translations = {
@@ -114,6 +115,48 @@ const translations = {
         en: 'uses'
     }
 };
+
+// Función para inicializar las letras del título
+function initializeTitle() {
+    const titleWord = document.querySelector('.title-word');
+    const titleText = titleWord.textContent;
+    titleWord.innerHTML = '';
+    
+    titleText.split('').forEach(letter => {
+        const letterSpan = document.createElement('span');
+        letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
+        letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
+        titleWord.appendChild(letterSpan);
+    });
+}
+
+// Función para cargar tema guardado
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('preferred-theme');
+    if (savedTheme) {
+        currentTheme = savedTheme;
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeButton();
+    }
+}
+
+// Función para cambiar tema
+function toggleTheme() {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('preferred-theme', currentTheme);
+    updateThemeButton();
+}
+
+// Función para actualizar el botón de tema
+function updateThemeButton() {
+    const themeBtn = document.getElementById('themeBtn');
+    if (currentTheme === 'dark') {
+        themeBtn.title = themeBtn.getAttribute('data-tooltip-dark') || 'Cambiar a modo claro';
+    } else {
+        themeBtn.title = themeBtn.getAttribute('data-tooltip-light') || 'Cambiar a modo oscuro';
+    }
+}
 
 function renderTools() {
     const grid = document.getElementById('toolsGrid');
@@ -197,8 +240,8 @@ function filterTools() {
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
     
-    // Actualizar todos los elementos con data-es y data-en
-    document.querySelectorAll('[data-es][data-en]').forEach(element => {
+    // Actualizar todos los elementos con data-es y data-en (excepto el título)
+    document.querySelectorAll('[data-es][data-en]:not(.title-word)').forEach(element => {
         if (element.tagName === 'INPUT' && element.type === 'text') {
             element.placeholder = element.getAttribute(`data-placeholder-${currentLanguage}`);
         } else {
@@ -206,15 +249,27 @@ function toggleLanguage() {
         }
     });
     
-    // Actualizar el título principal con animación
-    const titleWords = document.querySelectorAll('.title-word');
-    titleWords.forEach((word, index) => {
+    // Actualizar el título principal con animación letra por letra
+    const titleWord = document.querySelector('.title-word');
+    const newTitle = titleWord.getAttribute(`data-${currentLanguage}`);
+    
+    // Crear las letras individuales
+    titleWord.innerHTML = '';
+    newTitle.split('').forEach((letter, index) => {
         setTimeout(() => {
-            word.style.transform = 'rotateY(180deg) scale(0.8)';
+            const letterSpan = document.createElement('span');
+            letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
+            letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
+            letterSpan.style.opacity = '0';
+            letterSpan.style.transform = 'translateY(-50px) rotate(180deg)';
+            titleWord.appendChild(letterSpan);
+            
+            // Animar la aparición de cada letra
             setTimeout(() => {
-                word.textContent = word.getAttribute(`data-${currentLanguage}`);
-                word.style.transform = 'rotateY(0deg) scale(1)';
-            }, 300);
+                letterSpan.style.opacity = '1';
+                letterSpan.style.transform = 'translateY(0) rotate(0deg)';
+                letterSpan.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            }, 50);
         }, index * 100);
     });
     
@@ -230,27 +285,26 @@ function toggleLanguage() {
         document.documentElement.lang = 'es';
     }
     
+    // Actualizar tooltips del botón de tema
+    const themeBtn = document.getElementById('themeBtn');
+    if (currentLanguage === 'es') {
+        themeBtn.setAttribute('data-tooltip-light', 'Cambiar a modo oscuro');
+        themeBtn.setAttribute('data-tooltip-dark', 'Cambiar a modo claro');
+    } else {
+        themeBtn.setAttribute('data-tooltip-light', 'Switch to dark mode');
+        themeBtn.setAttribute('data-tooltip-dark', 'Switch to light mode');
+    }
+    updateThemeButton();
+    
     // Actualizar el título de la página
     document.title = currentLanguage === 'es' ? 
-        'Herramientas de Español - Universidad de Hong Kong' : 
+        'Herramientas para Aprender Español - Universidad de Hong Kong' : 
         'Spanish Learning Tools - University of Hong Kong';
     
     // Re-renderizar las herramientas con el nuevo idioma
     renderTools();
 }
-// Función para inicializar las letras del título
-function initializeTitle() {
-    const titleWord = document.querySelector('.title-word');
-    const titleText = titleWord.textContent;
-    titleWord.innerHTML = '';
-    
-    titleText.split('').forEach(letter => {
-        const letterSpan = document.createElement('span');
-        letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
-        letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
-        titleWord.appendChild(letterSpan);
-    });
-}
+
 function changeView(viewType) {
     const grid = document.getElementById('toolsGrid');
     currentView = viewType;
@@ -289,7 +343,9 @@ document.querySelectorAll('.view-btn').forEach(btn => {
 });
 
 document.getElementById('languageBtn').addEventListener('click', toggleLanguage);
+document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 
 // Inicializar la página
+loadSavedTheme();
 initializeTitle();
 renderTools();
