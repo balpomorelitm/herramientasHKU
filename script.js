@@ -1,95 +1,9 @@
-// Base de datos de herramientas
-const tools = [
-    {
-        id: 1,
-        title: "The Conjugator",
-        description: "Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego. Perfecto para practicar los tiempos verbales mientras esquivas robots asesinos.",
-        link: "https://conjugator.pablotorrado.site",
-        subjects: ["Gramática", "General"],
-        level: "Todos los niveles",
-        type: "Juego",
-        dateAdded: "2024-01-15",
-        rating: 4.8,
-        usageCount: 0
-    },
-    {
-        id: 2,
-        title: "SPAN1001 Palabrero",
-        description: "Juego de palabras interactivo diseñado para estudiantes del curso SPAN1001. Cada día presenta una nueva palabra del vocabulario del libro de texto, siguiendo el calendario académico del semestre.",
-        link: "https://1001palabrero.pablotorrado.site",
-        subjects: ["SPAN1001", "Vocabulario"],
-        level: "A1",
-        type: "Juego",
-        dateAdded: "2024-02-20",
-        rating: 4.6,
-        usageCount: 0
-    },
-    {
-        id: 3,
-        title: "Desencripta",
-        description: "Adaptación digital del juego de mesa Decrypto. Desarrollado con HTML, CSS y JavaScript, lleva la experiencia de transmitir códigos secretos al navegador. Amplio vocabulario con más de 900 unidades léxicas.",
-        link: "https://desencripta.pablotorrado.site",
-        subjects: ["Vocabulario", "General"],
-        level: "B1",
-        type: "Juego",
-        dateAdded: "2024-03-10",
-        rating: 4.7,
-        usageCount: 0
-    },
-    {
-        id: 4,
-        title: "Batalla Verbal",
-        description: "Innovador juego que combina la estrategia del clásico hundir la flota con práctica de gramática. Cada ataque requiere conjugar un verbo correctamente. ¡Hunde a tu frenemigo con tus verbomisiles!",
-        link: "https://batallaverbal.pablotorrado.site",
-        subjects: ["Gramática", "General"],
-        level: "A2",
-        type: "Juego",
-        dateAdded: "2024-03-25",
-        rating: 4.9,
-        usageCount: 0
-    },
-    {
-        id: 5,
-        title: "Atún Feliz",
-        description: "Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos. Incluye animaciones y sonidos que amenizan la experiencia.",
-        link: "https://atunfeliz.pablotorrado.site",
-        subjects: ["Vocabulario", "General"],
-        level: "A1",
-        type: "Juego",
-        dateAdded: "2024-04-05",
-        rating: 4.4,
-        usageCount: 0
-    },
-    {
-        id: 6,
-        title: "Charaditas",
-        description: "Nuestra versión personal de Charades con vocabulario de A1 y A2 del MCERL. Ideal para practicar vocabulario de forma divertida y en grupo.",
-        link: "https://charaditas.pablotorrado.site",
-        subjects: ["Vocabulario", "General"],
-        level: "A1",
-        type: "Juego",
-        dateAdded: "2024-04-18",
-        rating: 4.3,
-        usageCount: 0
-    },
-    {
-        id: 7,
-        title: "Palabras Clave",
-        description: "Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2). Ideal para repasar vocabulario y fomentar el trabajo en equipo.",
-        link: "https://palabrasclave.pablotorrado.site",
-        subjects: ["Vocabulario", "General"],
-        level: "A2",
-        type: "Juego",
-        dateAdded: "2024-05-02",
-        rating: 4.5,
-        usageCount: 0
-    }
-];
-
-let filteredTools = [...tools];
+// Variables globales
+let tools = [];
+let filteredTools = [];
 let currentSort = 'alphabetical';
 let currentView = 'card';
-let currentLanguage = 'en'; // Cambiado a inglés por defecto
+let currentLanguage = 'en'; // Inglés por defecto
 let currentTheme = 'light';
 
 // Traducciones
@@ -113,147 +27,68 @@ const translations = {
     uses: {
         es: 'usos',
         en: 'uses'
+    },
+    loading: {
+        es: 'Cargando herramientas...',
+        en: 'Loading tools...'
+    },
+    error: {
+        es: 'Error al cargar las herramientas. Por favor, recarga la página.',
+        en: 'Error loading tools. Please refresh the page.'
     }
 };
 
-// Función para inicializar las letras del título
-function initializeTitle() {
-    const titleWord = document.querySelector('.title-word');
-    const titleText = titleWord.textContent;
-    titleWord.innerHTML = '';
-    
-    titleText.split('').forEach(letter => {
-        const letterSpan = document.createElement('span');
-        letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
-        letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
-        titleWord.appendChild(letterSpan);
-    });
-}
-
-// Función para cargar tema guardado
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('preferred-theme');
-    if (savedTheme) {
-        currentTheme = savedTheme;
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeButton();
+// Función para cargar herramientas desde JSON
+async function loadTools() {
+    try {
+        const response = await fetch('tools.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        tools = data.tools;
+        filteredTools = [...tools];
+        
+        // Cargar contadores guardados después de cargar las herramientas
+        loadUsageCounts();
+        renderTools();
+        
+        console.log(`✅ Cargadas ${tools.length} herramientas desde tools.json`);
+        return true;
+    } catch (error) {
+        console.error('❌ Error cargando herramientas:', error);
+        
+        // Mostrar mensaje de error en la UI
+        const grid = document.getElementById('toolsGrid');
+        grid.innerHTML = `
+            <div class="no-results">
+                <h3>⚠️ ${translations.error[currentLanguage]}</h3>
+                <p>Error: ${error.message}</p>
+            </div>
+        `;
+        return false;
     }
 }
 
-// Función para cambiar tema
-function toggleTheme() {
-    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('preferred-theme', currentTheme);
-    updateThemeButton();
-}
-
-// Función para actualizar el botón de tema
-function updateThemeButton() {
-    const themeBtn = document.getElementById('themeBtn');
-    if (currentTheme === 'dark') {
-        themeBtn.title = themeBtn.getAttribute('data-tooltip-dark') || 'Switch to light mode';
-    } else {
-        themeBtn.title = themeBtn.getAttribute('data-tooltip-light') || 'Switch to dark mode';
-    }
-}
-
-function renderTools() {
+// Función para mostrar loading
+function showLoading() {
     const grid = document.getElementById('toolsGrid');
-    const toolCount = document.getElementById('toolCount');
-    
-    if (filteredTools.length === 0) {
-        grid.innerHTML = `<div class="no-results">${translations.noResults[currentLanguage]}</div>`;
-        toolCount.textContent = '0';
-        return;
-    }
-
-    grid.innerHTML = filteredTools.map(tool => `
-        <div class="tool-card">
-            <div class="tool-header">
-                <h3 class="tool-title">${tool.title}</h3>
-                <div class="tool-meta">
-                    <span>${translations.added[currentLanguage]} ${formatDate(tool.dateAdded)}</span>
-                    <span>${translations.type[currentLanguage]} ${tool.type}</span>
-                </div>
-            </div>
-            <p class="tool-description">${tool.description}</p>
-            <div class="tool-tags">
-                ${tool.subjects.map(subject => `<span class="tag subject">${subject}</span>`).join('')}
-                <span class="tag level">${tool.level}</span>
-            </div>
-            <div class="tool-footer">
-                <a href="${tool.link}" 
-                   target="_blank" 
-                   class="visit-btn" 
-                   onclick="incrementUsage(${tool.id}, '${tool.title.replace(/'/g, "\\'")}'); return true;">
-                   ${translations.access[currentLanguage]}
-                </a>
-                <div class="rating">
-                    <div class="stars">${'★'.repeat(Math.floor(tool.rating))}${tool.rating % 1 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(tool.rating))}</div>
-                    <span class="usage-count">(${tool.usageCount} ${translations.uses[currentLanguage]})</span>
-                </div>
-            </div>
+    grid.innerHTML = `
+        <div class="no-results">
+            <h3>⏳ ${translations.loading[currentLanguage]}</h3>
         </div>
-    `).join('');
-    
-    toolCount.textContent = filteredTools.length;
+    `;
 }
 
-// Añadir botón de estadísticas en la página (opcional)
-function addStatsButton() {
-    const statsButton = document.createElement('button');
-    statsButton.textContent = '📊 Ver Estadísticas';
-    statsButton.className = 'sort-btn';
-    statsButton.onclick = () => {
-        const stats = getUsageStats();
-        alert(`Herramientas más usadas:\n${stats.slice(0,5).map((s,i) => `${i+1}. ${s.name}: ${s.clicks} clicks`).join('\n')}`);
-    };
-    
-    document.querySelector('.sort-options').appendChild(statsButton);
-}
-function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', options);
-}
-
-function sortTools(criteria) {
-    switch(criteria) {
-        case 'alphabetical':
-            filteredTools.sort((a, b) => a.title.localeCompare(b.title));
-            break;
-        case 'date':
-            filteredTools.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-            break;
-        case 'rating':
-            filteredTools.sort((a, b) => b.rating - a.rating);
-            break;
-        case 'usage':
-            filteredTools.sort((a, b) => b.usageCount - a.usageCount);
-            break;
+// Función para obtener el texto localizado
+function getLocalizedText(textObj) {
+    if (typeof textObj === 'object' && textObj[currentLanguage]) {
+        return textObj[currentLanguage];
     }
-    renderTools();
+    return textObj; // Fallback si no es un objeto bilingüe
 }
 
-function filterTools() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const subjectFilter = document.getElementById('subjectFilter').value;
-    const levelFilter = document.getElementById('levelFilter').value;
-    const typeFilter = document.getElementById('typeFilter').value;
-
-    filteredTools = tools.filter(tool => {
-        const matchesSearch = tool.title.toLowerCase().includes(searchTerm) || 
-                            tool.description.toLowerCase().includes(searchTerm);
-        const matchesSubject = !subjectFilter || tool.subjects.includes(subjectFilter);
-        const matchesLevel = !levelFilter || tool.level === levelFilter;
-        const matchesType = !typeFilter || tool.type === typeFilter;
-
-        return matchesSearch && matchesSubject && matchesLevel && matchesType;
-    });
-
-    sortTools(currentSort);
-}
-
+// Función para cargar contadores guardados
 function loadUsageCounts() {
     tools.forEach(tool => {
         const count = parseInt(localStorage.getItem(`tool_usage_${tool.id}`) || '0');
@@ -312,6 +147,195 @@ function resetAllCounters() {
     renderTools();
     console.log('Todos los contadores reseteados');
 }
+
+// Función para manejar saltos de línea inteligentes en el título
+function handleMobileTitle() {
+    if (window.innerWidth <= 768) {
+        const titleWord = document.querySelector('.title-word');
+        const titleText = titleWord.getAttribute(`data-${currentLanguage}`);
+        
+        let formattedTitle = titleText;
+        
+        // Reglas específicas para cada idioma
+        if (currentLanguage === 'es') {
+            // "HERRAMIENTAS PARA APRENDER ESPAÑOL" -> "HERRAMIENTAS PARA<br>APRENDER ESPAÑOL"
+            formattedTitle = titleText.replace('PARA APRENDER', 'PARA<br>APRENDER');
+        } else if (currentLanguage === 'en') {
+            // "SPANISH LEARNING TOOLS" -> "SPANISH<br>LEARNING TOOLS"
+            formattedTitle = titleText.replace('SPANISH LEARNING', 'SPANISH<br>LEARNING');
+        }
+        
+        // Limpiar título actual
+        titleWord.innerHTML = '';
+        
+        // Dividir por <br> y procesar cada línea
+        const lines = formattedTitle.split('<br>');
+        
+        lines.forEach((line, lineIndex) => {
+            if (lineIndex > 0) {
+                // Añadir salto de línea
+                const lineBreak = document.createElement('br');
+                titleWord.appendChild(lineBreak);
+            }
+            
+            // Añadir letras de esta línea
+            line.split('').forEach(letter => {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
+                letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
+                titleWord.appendChild(letterSpan);
+            });
+        });
+    } else {
+        // En desktop, usar el comportamiento normal
+        const titleWord = document.querySelector('.title-word');
+        const titleText = titleWord.getAttribute(`data-${currentLanguage}`);
+        titleWord.innerHTML = '';
+        
+        titleText.split('').forEach(letter => {
+            const letterSpan = document.createElement('span');
+            letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
+            letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
+            titleWord.appendChild(letterSpan);
+        });
+    }
+}
+
+// Función para inicializar las letras del título
+function initializeTitle() {
+    handleMobileTitle();
+}
+
+// Escuchar cambios de tamaño de ventana
+window.addEventListener('resize', () => {
+    clearTimeout(window.resizeTimeout);
+    window.resizeTimeout = setTimeout(() => {
+        handleMobileTitle();
+    }, 250);
+});
+
+// Función para cargar tema guardado
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('preferred-theme');
+    if (savedTheme) {
+        currentTheme = savedTheme;
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeButton();
+    }
+}
+
+// Función para cambiar tema
+function toggleTheme() {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('preferred-theme', currentTheme);
+    updateThemeButton();
+}
+
+// Función para actualizar el botón de tema
+function updateThemeButton() {
+    const themeBtn = document.getElementById('themeBtn');
+    if (currentTheme === 'dark') {
+        themeBtn.title = themeBtn.getAttribute('data-tooltip-dark') || 'Switch to light mode';
+    } else {
+        themeBtn.title = themeBtn.getAttribute('data-tooltip-light') || 'Switch to dark mode';
+    }
+}
+
+function renderTools() {
+    const grid = document.getElementById('toolsGrid');
+    const toolCount = document.getElementById('toolCount');
+    
+    if (filteredTools.length === 0) {
+        grid.innerHTML = `<div class="no-results">${translations.noResults[currentLanguage]}</div>`;
+        toolCount.textContent = '0';
+        return;
+    }
+
+    grid.innerHTML = filteredTools.map(tool => `
+        <div class="tool-card">
+            <div class="tool-header">
+                <h3 class="tool-title">${tool.title}</h3>
+                <div class="tool-meta">
+                    <span>${translations.added[currentLanguage]} ${formatDate(tool.dateAdded)}</span>
+                    <span>${translations.type[currentLanguage]} ${getLocalizedText(tool.type)}</span>
+                </div>
+            </div>
+            <p class="tool-description">${getLocalizedText(tool.description)}</p>
+            <div class="tool-tags">
+                ${getLocalizedText(tool.subjects).map(subject => `<span class="tag subject">${subject}</span>`).join('')}
+                <span class="tag level">${getLocalizedText(tool.level)}</span>
+            </div>
+            <div class="tool-footer">
+                <a href="${tool.link}" 
+                   target="_blank" 
+                   class="visit-btn" 
+                   onclick="incrementUsage(${tool.id}, '${tool.title.replace(/'/g, "\\'")}'); return true;">
+                   ${translations.access[currentLanguage]}
+                </a>
+                <div class="rating">
+                    <div class="stars">${'★'.repeat(Math.floor(tool.rating))}${tool.rating % 1 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(tool.rating))}</div>
+                    <span class="usage-count">(${tool.usageCount} ${translations.uses[currentLanguage]})</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    toolCount.textContent = filteredTools.length;
+}
+
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', options);
+}
+
+function sortTools(criteria) {
+    switch(criteria) {
+        case 'alphabetical':
+            filteredTools.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        case 'date':
+            filteredTools.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+            break;
+        case 'rating':
+            filteredTools.sort((a, b) => b.rating - a.rating);
+            break;
+        case 'usage':
+            filteredTools.sort((a, b) => b.usageCount - a.usageCount);
+            break;
+    }
+    renderTools();
+}
+
+function filterTools() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const subjectFilter = document.getElementById('subjectFilter').value;
+    const levelFilter = document.getElementById('levelFilter').value;
+    const typeFilter = document.getElementById('typeFilter').value;
+
+    filteredTools = tools.filter(tool => {
+        // Buscar en títulos y descripciones en ambos idiomas
+        const matchesSearch = tool.title.toLowerCase().includes(searchTerm) || 
+                            getLocalizedText(tool.description).toLowerCase().includes(searchTerm);
+        
+        // Verificar subjects en el idioma actual
+        const currentSubjects = getLocalizedText(tool.subjects);
+        const matchesSubject = !subjectFilter || currentSubjects.includes(subjectFilter);
+        
+        // Verificar level en el idioma actual
+        const currentLevel = getLocalizedText(tool.level);
+        const matchesLevel = !levelFilter || currentLevel === levelFilter;
+        
+        // Verificar type en el idioma actual
+        const currentType = getLocalizedText(tool.type);
+        const matchesType = !typeFilter || currentType === typeFilter;
+
+        return matchesSearch && matchesSubject && matchesLevel && matchesType;
+    });
+
+    sortTools(currentSort);
+}
+
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
     
@@ -328,25 +352,32 @@ function toggleLanguage() {
     const titleWord = document.querySelector('.title-word');
     const newTitle = titleWord.getAttribute(`data-${currentLanguage}`);
     
-    // Crear las letras individuales
-    titleWord.innerHTML = '';
-    newTitle.split('').forEach((letter, index) => {
+    // Limpiar título actual con animación
+    const currentLetters = titleWord.querySelectorAll('.title-letter, br');
+    currentLetters.forEach((letter, index) => {
         setTimeout(() => {
-            const letterSpan = document.createElement('span');
-            letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
-            letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
-            letterSpan.style.opacity = '0';
-            letterSpan.style.transform = 'translateY(-50px) rotate(180deg)';
-            titleWord.appendChild(letterSpan);
-            
-            // Animar la aparición de cada letra
-            setTimeout(() => {
-                letterSpan.style.opacity = '1';
-                letterSpan.style.transform = 'translateY(0) rotate(0deg)';
-                letterSpan.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-            }, 50);
-        }, index * 100);
+            letter.style.opacity = '0';
+            letter.style.transform = 'translateY(50px) rotate(180deg)';
+        }, index * 20);
     });
+    
+    // Después de la animación de salida, crear nuevo título
+    setTimeout(() => {
+        handleMobileTitle();
+        
+        // Animar entrada del nuevo título
+        const newLetters = titleWord.querySelectorAll('.title-letter');
+        newLetters.forEach((letter, index) => {
+            letter.style.opacity = '0';
+            letter.style.transform = 'translateY(-50px) rotate(180deg)';
+            
+            setTimeout(() => {
+                letter.style.opacity = '1';
+                letter.style.transform = 'translateY(0) rotate(0deg)';
+                letter.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            }, index * 50);
+        });
+    }, currentLetters.length * 20 + 200);
     
     // Actualizar el botón de idioma
     const langBtn = document.getElementById('languageBtn');
@@ -421,6 +452,23 @@ document.getElementById('languageBtn').addEventListener('click', toggleLanguage)
 document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 
 // Inicializar la página
-loadUsageCounts();  // Cargar contadores guardados
-initializeTitle();
-renderTools();
+async function initApp() {
+    // Mostrar loading
+    showLoading();
+    
+    // Cargar tema guardado
+    loadSavedTheme();
+    
+    // Inicializar título
+    initializeTitle();
+    
+    // Cargar herramientas desde JSON
+    const success = await loadTools();
+    
+    if (!success) {
+        console.error('❌ No se pudieron cargar las herramientas');
+    }
+}
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initApp);
