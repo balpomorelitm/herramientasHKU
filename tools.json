@@ -8,10 +8,7 @@
         "es": "Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego. Perfecto para practicar los tiempos verbales mientras esquivas robots asesinos."
       },
       "link": "https://conjugator.pablotorrado.site",
-      "subjects": {
-        "en": ["Grammar", "General"],
-        "es": ["Gramática", "General"]
-      },
+      "subjects": {},
       "level": {
         "en": "All levels",
         "es": "Todos los niveles"
@@ -19,6 +16,10 @@
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+      "tags": {
+        "en": ["Grammar", "General", "Conjugation", "Individual"],
+        "es": ["Gramática", "General", "Conjugación", "Individual"]
       },
       "dateAdded": "2024-01-15",
       "rating": 4.8,
@@ -33,8 +34,8 @@
       },
       "link": "https://1001palabrero.pablotorrado.site",
       "subjects": {
-        "en": ["SPAN1001", "Vocabulary"],
-        "es": ["SPAN1001", "Vocabulario"]
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
       },
       "level": {
         "en": "A1",
@@ -43,6 +44,10 @@
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+      "tags": {
+        "en": ["Vocabulary", "Individual"],
+        "es": ["Vocabulario", "Individual"]
       },
       "dateAdded": "2024-02-20",
       "rating": 4.6,
@@ -56,10 +61,7 @@
         "es": "Adaptación digital del juego de mesa Decrypto. Desarrollado con HTML, CSS y JavaScript, lleva la experiencia de transmitir códigos secretos al navegador. Amplio vocabulario con más de 900 unidades léxicas."
       },
       "link": "https://desencripta.pablotorrado.site",
-      "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
+      "subjects": {},
       "level": {
         "en": "B1",
         "es": "B1"
@@ -67,6 +69,10 @@
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+      "tags": {
+        "en": ["Vocabulary", "General", "Team work"],
+        "es": ["Vocabulario", "General", "Equipos"]
       },
       "dateAdded": "2024-03-10",
       "rating": 4.7,
@@ -80,10 +86,7 @@
         "es": "Innovador juego que combina la estrategia del clásico hundir la flota con práctica de gramática. Cada ataque requiere conjugar un verbo correctamente. ¡Hunde a tu frenemigo con tus verbomisiles!"
       },
       "link": "https://batallaverbal.pablotorrado.site",
-      "subjects": {
-        "en": ["Grammar", "General"],
-        "es": ["Gramática", "General"]
-      },
+      "subjects": {},
       "level": {
         "en": "A2",
         "es": "A2"
@@ -91,6 +94,10 @@
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+       "tags": {
+        "en": ["Grammar", "General", "Conjugation", "Couples"],
+        "es": ["Gramática", "General", "Conjugación", "Parejas"]
       },
       "dateAdded": "2024-03-25",
       "rating": 4.9,
@@ -104,10 +111,7 @@
         "es": "Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos. Incluye animaciones y sonidos que amenizan la experiencia."
       },
       "link": "https://atunfeliz.pablotorrado.site",
-      "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
+      "subjects": {},
       "level": {
         "en": "A1",
         "es": "A1"
@@ -115,6 +119,10 @@
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+      "tags": {
+        "en": ["Vocabulary", "General", "Team work"],
+        "es": ["Vocabulario", "General", "Equipos"]
       },
       "dateAdded": "2024-04-05",
       "rating": 4.4,
@@ -128,10 +136,7 @@
         "es": "Nuestra versión personal de Charades con vocabulario de A1 y A2 del MCERL. Ideal para practicar vocabulario de forma divertida y en grupo."
       },
       "link": "https://charaditas.pablotorrado.site",
-      "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
+      "subjects": {},
       "level": {
         "en": "A1",
         "es": "A1"
@@ -139,6 +144,10 @@
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+      "tags": {
+        "en": ["Vocabulary", "General", "Team work", "Couples"],
+        "es": ["Vocabulario", "General", "Equipos", "Parejas"]
       },
       "dateAdded": "2024-04-18",
       "rating": 4.3,
@@ -152,17 +161,18 @@
         "es": "Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2). Ideal para repasar vocabulario y fomentar el trabajo en equipo."
       },
       "link": "https://palabrasclave.pablotorrado.site",
-      "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
+      "subjects": {},
       "level": {
-        "en": "A2",
-        "es": "A2"
+        "en": "A1-B2",
+        "es": "A1-B2"
       },
       "type": {
         "en": "Game",
         "es": "Juego"
+      },
+      "tags": {
+        "en": ["Vocabulary", "Team work"],
+        "es": ["Vocabulario", "Equipos"]
       },
       "dateAdded": "2024-05-02",
       "rating": 4.5,
@@ -175,18 +185,22 @@
         "en": "An immersive interactive Spanish learning experience set in the heart of Seville. Follow Leo, a young student from Hong Kong, as he discovers the mysteries and beauty of Andalusia through photography, friendship, and language learning.",
         "es": "Una experiencia inmersiva e interactiva de aprendizaje de español ambientada en el corazón de Sevilla. Sigue a Leo, un joven estudiante de Hong Kong, mientras descubre los misterios y la belleza de Andalucía a través de la fotografía, la amistad y el aprendizaje de idiomas."
       },
-      "link": "https://balpomorelitm.github.io/elalmadesevilla/",
+      "link": "https://almade sevilla.pablotorrado.site",
       "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
       },
       "level": {
-        "en": "B2",
-        "es": "B2"
+        "en": "A1",
+        "es": "A1"
       },
       "type": {
-        "en": "Game",
-        "es": "Juego"
+        "en": "Adapted novel",
+        "es": "Novela adaptada"
+      },
+      "tags": {
+        "en": ["Reading", "Vocabulary"],
+        "es": ["Lectura", "Vocabulario"]
       },
       "dateAdded": "2025-06-21",
       "rating": 4.9,
