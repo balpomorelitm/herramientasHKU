@@ -26,7 +26,7 @@
         "en": "Interactive word game designed for SPAN1001 students. Each day presents a new word from the textbook vocabulary, following the semester's academic calendar.",
         "es": "Juego de palabras interactivo diseñado para estudiantes del curso SPAN1001. Cada día presenta una nueva palabra del vocabulario del libro de texto, siguiendo el calendario académico del semestre."
       },
-      "link": "span1001palabrero.netlify.app",
+      "link": "https://span1001palabrero.netlify.app",
       "subjects": {
         "en": ["SPAN1001"],
         "es": ["SPAN1001"]
