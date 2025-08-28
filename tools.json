@@ -9,23 +9,14 @@
       },
       "link": "https://conjugator.pablotorrado.site",
       "subjects": {
-        "en": ["Grammar", "General", "Conjugation"],
-        "es": ["Gramática", "General", "Conjugación"]
-      },
-      "level": {
-        "en": "All levels",
-        "es": "Todos los niveles"
+        "en": ["SPAN1001", "SPAN2001"],
+        "es": ["SPAN1001", "SPAN2001"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-      "tags": {
-        "en": ["Individual"],
-        "es": ["Individual"]
-      },
       "dateAdded": "2024-01-15",
-      "rating": 4.8,
       "usageCount": 0
     },
     {
@@ -35,25 +26,16 @@
         "en": "Interactive word game designed for SPAN1001 students. Each day presents a new word from the textbook vocabulary, following the semester's academic calendar.",
         "es": "Juego de palabras interactivo diseñado para estudiantes del curso SPAN1001. Cada día presenta una nueva palabra del vocabulario del libro de texto, siguiendo el calendario académico del semestre."
       },
-      "link": "https://1001palabrero.pablotorrado.site",
+      "link": "span1001palabrero.netlify.app",
       "subjects": {
-        "en": ["SPAN1001", "Vocabulary"],
-        "es": ["SPAN1001", "Vocabulario"]
-      },
-      "level": {
-        "en": "A1",
-        "es": "A1"
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-      "tags": {
-        "en": ["Individual"],
-        "es": ["Individual"]
-      },
       "dateAdded": "2024-02-20",
-      "rating": 4.6,
       "usageCount": 0
     },
     {
@@ -65,23 +47,14 @@
       },
       "link": "https://desencripta.pablotorrado.site",
       "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
-      "level": {
-        "en": "B1",
-        "es": "B1"
+        "en": ["SPAN2001", "SPAN2002"],
+        "es": ["SPAN2001", "SPAN2002"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-      "tags": {
-        "en": ["Team work"],
-        "es": ["Equipos"]
-      },
       "dateAdded": "2024-03-10",
-      "rating": 4.7,
       "usageCount": 0
     },
     {
@@ -93,23 +66,14 @@
       },
       "link": "https://batallaverbal.pablotorrado.site",
       "subjects": {
-        "en": ["Grammar", "General"],
-        "es": ["Gramática", "General"]
-      },
-      "level": {
-        "en": "A2",
-        "es": "A2"
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-       "tags": {
-        "en": ["Conjugation", "Couples"],
-        "es": ["Conjugación", "Parejas"]
-      },
       "dateAdded": "2024-03-25",
-      "rating": 4.9,
       "usageCount": 0
     },
     {
@@ -121,23 +85,14 @@
       },
       "link": "https://atunfeliz.pablotorrado.site",
       "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
-      "level": {
-        "en": "A1",
-        "es": "A1"
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-      "tags": {
-        "en": ["Team work"],
-        "es": ["Equipos"]
-      },
       "dateAdded": "2024-04-05",
-      "rating": 4.4,
       "usageCount": 0
     },
     {
@@ -149,23 +104,14 @@
       },
       "link": "https://charaditas.pablotorrado.site",
       "subjects": {
-        "en": ["Vocabulary", "General"],
-        "es": ["Vocabulario", "General"]
-      },
-      "level": {
-        "en": "A1",
-        "es": "A1"
+        "en": ["SPAN1001", "SPAN1002"],
+        "es": ["SPAN1001", "SPAN1002"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-      "tags": {
-        "en": ["Team work", "Couples"],
-        "es": ["Equipos", "Parejas"]
-      },
       "dateAdded": "2024-04-18",
-      "rating": 4.3,
       "usageCount": 0
     },
     {
@@ -177,23 +123,14 @@
       },
       "link": "https://palabrasclave.pablotorrado.site",
       "subjects": {
-        "en": ["Vocabulary"],
-        "es": ["Vocabulario"]
-      },
-      "level": {
-        "en": "A1-B2",
-        "es": "A1-B2"
+        "en": ["SPAN1001", "SPAN1002", "SPAN2001"],
+        "es": ["SPAN1001", "SPAN1002", "SPAN2001"]
       },
       "type": {
         "en": "Game",
         "es": "Juego"
       },
-      "tags": {
-        "en": ["Team work"],
-        "es": ["Equipos"]
-      },
       "dateAdded": "2024-05-02",
-      "rating": 4.5,
       "usageCount": 0
     },
     {
@@ -203,27 +140,22 @@
         "en": "An immersive interactive Spanish learning experience set in the heart of Seville. Follow Leo, a young student from Hong Kong, as he discovers the mysteries and beauty of Andalusia through photography, friendship, and language learning.",
         "es": "Una experiencia inmersiva e interactiva de aprendizaje de español ambientada en el corazón de Sevilla. Sigue a Leo, un joven estudiante de Hong Kong, mientras descubre los misterios y la belleza de Andalucía a través de la fotografía, la amistad y el aprendizaje de idiomas."
       },
-      "link": "https://almade sevilla.pablotorrado.site",
+      "link": "https://elalmadesevilla.netlify.app",
       "subjects": {
-        "en": ["Reading", "Vocabulary", "SPAN1001"],
-        "es": ["Lectura", "Vocabulario", "SPAN1001"]
-      },
-      "level": {
-        "en": "A1",
-        "es": "A1"
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
       },
       "type": {
-        "en": "Adapted novel",
-        "es": "Novela adaptada"
+        "en": "Resource",
+        "es": "Recurso"
       },
       "dateAdded": "2025-06-21",
-      "rating": 4.9,
       "usageCount": 0
     }
   ],
   "metadata": {
-    "version": "1.0",
-    "lastUpdated": "2025-06-21",
+    "version": "2.0",
+    "lastUpdated": "2025-08-28",
     "totalTools": 8
   }
 }
