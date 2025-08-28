@@ -315,14 +315,8 @@ function filterTools() {
         const currentSubjects = getLocalizedText(tool.subjects);
         const matchesSubject = !subjectFilter || currentSubjects.includes(subjectFilter);
         
-        // Verificar type - comparar con ambos idiomas para que funcione independientemente del idioma actual
-        let matchesType = true;
-        if (typeFilter) {
-            const toolTypeEn = tool.type.en;
-            const toolTypeEs = tool.type.es;
-            // El typeFilter viene del select que tiene valores en inglés y español
-            matchesType = (toolTypeEn === typeFilter) || (toolTypeEs === typeFilter);
-        }
+        // Verificar type - usar solo el valor en inglés para consistencia
+        const matchesType = !typeFilter || tool.type.en === typeFilter;
 
         return matchesSearch && matchesSubject && matchesType;
     });
