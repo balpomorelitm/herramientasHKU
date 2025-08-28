@@ -130,8 +130,7 @@ function incrementUsage(toolId, toolName) {
 function getUsageStats() {
     const stats = tools.map(tool => ({
         name: tool.title,
-        clicks: tool.usageCount,
-        rating: tool.rating
+        clicks: tool.usageCount
     })).sort((a, b) => b.clicks - a.clicks);
     
     console.table(stats);
@@ -264,7 +263,6 @@ function renderTools() {
             <p class="tool-description">${getLocalizedText(tool.description)}</p>
             <div class="tool-tags">
                 ${getLocalizedText(tool.subjects).map(subject => `<span class="tag subject">${subject}</span>`).join('')}
-                <span class="tag level">${getLocalizedText(tool.level)}</span>
             </div>
             <div class="tool-footer">
                 <a href="${tool.link}" 
@@ -273,9 +271,8 @@ function renderTools() {
                    onclick="incrementUsage(${tool.id}, '${tool.title.replace(/'/g, "\\'")}'); return true;">
                    ${translations.access[currentLanguage]}
                 </a>
-                <div class="rating">
-                    <div class="stars">${'★'.repeat(Math.floor(tool.rating))}${tool.rating % 1 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(tool.rating))}</div>
-                    <span class="usage-count">(${tool.usageCount} ${translations.uses[currentLanguage]})</span>
+                <div class="usage-stats">
+                    <span class="usage-count">${tool.usageCount} ${translations.uses[currentLanguage]}</span>
                 </div>
             </div>
         </div>
@@ -297,9 +294,6 @@ function sortTools(criteria) {
         case 'date':
             filteredTools.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
             break;
-        case 'rating':
-            filteredTools.sort((a, b) => b.rating - a.rating);
-            break;
         case 'usage':
             filteredTools.sort((a, b) => b.usageCount - a.usageCount);
             break;
@@ -310,7 +304,6 @@ function sortTools(criteria) {
 function filterTools() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const subjectFilter = document.getElementById('subjectFilter').value;
-    const levelFilter = document.getElementById('levelFilter').value;
     const typeFilter = document.getElementById('typeFilter').value;
 
     filteredTools = tools.filter(tool => {
@@ -322,15 +315,11 @@ function filterTools() {
         const currentSubjects = getLocalizedText(tool.subjects);
         const matchesSubject = !subjectFilter || currentSubjects.includes(subjectFilter);
         
-        // Verificar level en el idioma actual
-        const currentLevel = getLocalizedText(tool.level);
-        const matchesLevel = !levelFilter || currentLevel === levelFilter;
-        
         // Verificar type en el idioma actual
         const currentType = getLocalizedText(tool.type);
         const matchesType = !typeFilter || currentType === typeFilter;
 
-        return matchesSearch && matchesSubject && matchesLevel && matchesType;
+        return matchesSearch && matchesSubject && matchesType;
     });
 
     sortTools(currentSort);
@@ -430,7 +419,6 @@ function changeView(viewType) {
 // Event listeners
 document.getElementById('searchInput').addEventListener('input', filterTools);
 document.getElementById('subjectFilter').addEventListener('change', filterTools);
-document.getElementById('levelFilter').addEventListener('change', filterTools);
 document.getElementById('typeFilter').addEventListener('change', filterTools);
 
 document.querySelectorAll('.sort-btn').forEach(btn => {
