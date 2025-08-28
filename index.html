@@ -17,6 +17,16 @@
                 <span class="title-word" data-es="HERRAMIENTAS PARA APRENDER ESPAÑOL" data-en="SPANISH LEARNING TOOLS">SPANISH LEARNING TOOLS</span>
             </h1>
             <p class="subtitle" data-es="Departamento de Español, SMLC, HKU" data-en="Spanish Department, SMLC, HKU">Spanish Department, SMLC, HKU</p>
+            
+            <!-- Botón del departamento -->
+            <div class="department-link">
+                <a href="https://spanish.hku.hk/" target="_blank" class="dept-btn">
+                    <span data-es="Visitar Programa de Español – HKU" data-en="Visit Spanish Programme – HKU">Visit Spanish Programme – HKU</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3V6H5c-2.21 0-4 1.79-4 4v7c0 2.21 1.79 4 4 4h7c2.21 0 4-1.79 4-4v-3h-2v3c0 1.1-.9 2-2 2z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
 
         <div class="controls">
@@ -28,22 +38,9 @@
                     <select id="subjectFilter">
                         <option value="" data-es="Todas" data-en="All">All</option>
                         <option value="SPAN1001">SPAN1001</option>
+                        <option value="SPAN1002">SPAN1002</option>
                         <option value="SPAN2001">SPAN2001</option>
-                        <option value="General" data-es="General" data-en="General">General</option>
-                        <option value="Gramática" data-es="Gramática" data-en="Grammar">Grammar</option>
-                        <option value="Vocabulario" data-es="Vocabulario" data-en="Vocabulary">Vocabulary</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label data-es="Nivel:" data-en="Level:">Level:</label>
-                    <select id="levelFilter">
-                        <option value="" data-es="Todos" data-en="All">All</option>
-                        <option value="A1">A1</option>
-                        <option value="A2">A2</option>
-                        <option value="B1">B1</option>
-                        <option value="B2">B2</option>
-                        <option value="Todos los niveles" data-es="Todos los niveles" data-en="All levels">All levels</option>
+                        <option value="SPAN2002">SPAN2002</option>
                     </select>
                 </div>
                 
@@ -62,7 +59,6 @@
                 <div class="sort-options">
                     <button class="sort-btn active" data-sort="alphabetical" data-es="Alfabético" data-en="Alphabetical">Alphabetical</button>
                     <button class="sort-btn" data-sort="date" data-es="Fecha" data-en="Date">Date</button>
-                    <button class="sort-btn" data-sort="rating" data-es="Valoración" data-en="Rating">Rating</button>
                     <button class="sort-btn" data-sort="usage" data-es="Más usadas" data-en="Most Used">Most Used</button>
                 </div>
 
@@ -108,7 +104,7 @@
         </div>
 
         <div class="stats" id="stats">
-            <span id="toolCount">7</span> <span data-es="herramientas disponibles" data-en="tools available">tools available</span>
+            <span id="toolCount">8</span> <span data-es="herramientas disponibles" data-en="tools available">tools available</span>
         </div>
 
         <footer class="footer">
