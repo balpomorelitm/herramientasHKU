@@ -157,5 +157,24 @@
     "version": "2.0",
     "lastUpdated": "2025-08-28",
     "totalTools": 8
+  },
+  {
+  "id": 9,
+  "title": "Spanish Learning Resource Map",
+  "description": {
+    "en": "Interactive resource map created in Miro containing comprehensive materials and tools for Spanish language learning. Visual organization of resources across all course levels.",
+    "es": "Mapa interactivo de recursos creado en Miro que contiene materiales y herramientas completas para el aprendizaje del español. Organización visual de recursos para todos los niveles del curso."
+  },
+  "link": "https://miro.com/app/board/o9J_lM0Ezo4=/",
+  "subjects": {
+    "en": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"],
+    "es": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"]
+  },
+  "type": {
+    "en": "Resource",
+    "es": "Recurso"
+  },
+  "dateAdded": "2024-08-28",
+  "usageCount": 0
   }
 }
