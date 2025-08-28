@@ -26,7 +26,7 @@
         "en": "Interactive word game designed for SPAN1001 students. Each day presents a new word from the textbook vocabulary, following the semester's academic calendar.",
         "es": "Juego de palabras interactivo diseñado para estudiantes del curso SPAN1001. Cada día presenta una nueva palabra del vocabulario del libro de texto, siguiendo el calendario académico del semestre."
       },
-      "link": "https://span1001palabrero.netlify.app",
+      "link": "https://1001palabrero.netlify.app",
       "subjects": {
         "en": ["SPAN1001"],
         "es": ["SPAN1001"]
@@ -64,10 +64,10 @@
         "en": "Innovative game combining classic battleship strategy with grammar practice. Each attack requires correct verb conjugation. Sink your frenemy with your verb-missiles!",
         "es": "Innovador juego que combina la estrategia del clásico hundir la flota con práctica de gramática. Cada ataque requiere conjugar un verbo correctamente. ¡Hunde a tu frenemigo con tus verbomisiles!"
       },
-      "link": "https://batallaverbal..netlify.app",
+      "link": "https://batallaverbal.netlify.app",
       "subjects": {
-        "en": ["SPAN1001"],
-        "es": ["SPAN1001"]
+        "en": ["SPAN1002", "SPAN2001"],
+        "es": ["SPAN1002", "SPAN2001"]
       },
       "type": {
         "en": "Game",
@@ -140,7 +140,7 @@
         "en": "An immersive interactive Spanish learning experience set in the heart of Seville. Follow Leo, a young student from Hong Kong, as he discovers the mysteries and beauty of Andalusia through photography, friendship, and language learning.",
         "es": "Una experiencia inmersiva e interactiva de aprendizaje de español ambientada en el corazón de Sevilla. Sigue a Leo, un joven estudiante de Hong Kong, mientras descubre los misterios y la belleza de Andalucía a través de la fotografía, la amistad y el aprendizaje de idiomas."
       },
-      "link": "https://elalmadesevilla.netlify.app",
+      "link": "https://almadesevilla.netlify.app",
       "subjects": {
         "en": ["SPAN1001"],
         "es": ["SPAN1001"]
@@ -151,30 +151,30 @@
       },
       "dateAdded": "2025-06-21",
       "usageCount": 0
+    },
+    {
+      "id": 9,
+      "title": "Mapa de Recursos Español",
+      "description": {
+        "en": "Interactive resource map created in Miro containing comprehensive materials and tools for Spanish language learning. Visual organization of resources across all course levels.",
+        "es": "Mapa interactivo de recursos creado en Miro que contiene materiales y herramientas completas para el aprendizaje del español. Organización visual de recursos para todos los niveles del curso."
+      },
+      "link": "https://miro.com/app/board/o9J_lM0Ezo4=/",
+      "subjects": {
+        "en": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"],
+        "es": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"]
+      },
+      "type": {
+        "en": "Resource",
+        "es": "Recurso"
+      },
+      "dateAdded": "2024-08-28",
+      "usageCount": 0
     }
   ],
   "metadata": {
     "version": "2.0",
     "lastUpdated": "2025-08-28",
-    "totalTools": 8
-  },
-  {
-  "id": 9,
-  "title": "Spanish Learning Resource Map",
-  "description": {
-    "en": "Interactive resource map created in Miro containing comprehensive materials and tools for Spanish language learning. Visual organization of resources across all course levels.",
-    "es": "Mapa interactivo de recursos creado en Miro que contiene materiales y herramientas completas para el aprendizaje del español. Organización visual de recursos para todos los niveles del curso."
-  },
-  "link": "https://miro.com/app/board/o9J_lM0Ezo4=/",
-  "subjects": {
-    "en": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"],
-    "es": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"]
-  },
-  "type": {
-    "en": "Resource",
-    "es": "Recurso"
-  },
-  "dateAdded": "2024-08-28",
-  "usageCount": 0
+    "totalTools": 9
   }
 }
