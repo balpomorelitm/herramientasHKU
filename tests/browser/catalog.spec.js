@@ -5,7 +5,7 @@ test("course grouping, live search, language, theme, empty state and ordering", 
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
-  await expect(page.locator(".tool-card")).toHaveCount(46);
+  await expect(page.locator(".tool-card")).toHaveCount(26);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await page.locator('[data-course="SPAN1001"]').click();
   await expect(
@@ -23,10 +23,10 @@ test("course grouping, live search, language, theme, empty state and ordering", 
   await page.locator("#resetBtn").click();
   await page.locator("#searchInput").fill("COMPRENSION ORAL");
   await page.locator("#typeFilter").selectOption("activity");
-  await expect(page.locator("#tool-desdequeteperdi")).toBeVisible();
+  await expect(page.locator("#tool-mocktest-span1002")).toBeVisible();
   await page.locator("#languageBtn").click();
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
-  await expect(page.locator("#tool-desdequeteperdi .open-link")).toContainText(
+  await expect(page.locator("#tool-mocktest-span1002 .open-link")).toContainText(
     "Abrir",
   );
   await page.locator("#themeBtn").click();
@@ -34,7 +34,7 @@ test("course grouping, live search, language, theme, empty state and ordering", 
   await page.locator("#searchInput").fill("nothingmatcheszz");
   await expect(page.locator(".empty-state")).toContainText("No hay resultados");
   await page.locator(".empty-state button").click();
-  await expect(page.locator(".tool-card")).toHaveCount(46);
+  await expect(page.locator(".tool-card")).toHaveCount(26);
   await page.locator("#sortFilter").selectOption("date");
   await expect(page).toHaveURL(/sort=date/);
   expect(errors).toEqual([]);
@@ -107,7 +107,7 @@ test("storage unavailable, fetch retry and all thumbnails load", async ({
   );
   fail = false;
   await page.locator(".empty-state button").click();
-  await expect(page.locator(".tool-card")).toHaveCount(46);
+  await expect(page.locator(".tool-card")).toHaveCount(26);
   await page.locator("#themeBtn").click();
   const broken = await page
     .locator(".thumbnail-button img")

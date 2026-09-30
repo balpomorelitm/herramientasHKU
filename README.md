@@ -52,7 +52,7 @@ Las pruebas de navegador usan Microsoft Edge mediante Playwright. Si no está in
 
 Comprobar una interacción principal antes de añadir una herramienta. Preferir el enlace de Netlify cuando sea la producción verificada. Agrupar versiones del mismo proyecto; asignar cursos según el contenido o una decisión expresa, no por suponer un nivel. Revisar visualmente las capturas y evitar datos personales. Las imágenes están en `assets/tools/<id>/`; los documentos, en `assets/documents/`.
 
-La revisión inicial de septiembre de 2026 reúne 46 fichas y 112 imágenes. La plantilla descargable Lunático conserva una ilustración del portfolio y dos vistas del contenido de sus tablas; estas vistas no reproducen el formato de impresión de Word.
+La selección actual reúne 26 fichas y 68 imágenes. Tras la revisión inicial de los 83 repositorios se retiraron 20 fichas por petición del autor. Mapamundi está asignado a SPAN1001; Sustantivos: artículos y cantidades, a SPAN1001 y SPAN1002.
 
 El inventario de los 83 repositorios, las incidencias y la evidencia de revisión se guardan localmente en `.maintenance/inventory.html`, `.maintenance/inventory.json` y `.maintenance/verification.json`. Esta carpeta está excluida de Git y del despliegue porque también documenta herramientas internas. El portfolio es una fuente de consulta y no forma parte de este despliegue.
 

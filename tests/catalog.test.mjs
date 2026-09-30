@@ -92,8 +92,13 @@ test("each course returns its own resources and all general resources only", () 
     ["elalmadesevilla", "SPAN1001"],
     ["elultimotango", "SPAN1002"],
     ["latido-latino", "SPAN2001"],
+    ["mapamundi", "SPAN1001"],
   ])
     assert.deepEqual(tools.find((t) => t.id === id).courses, [course]);
+  assert.deepEqual(tools.find((t) => t.id === "sustantivos").courses, [
+    "SPAN1001",
+    "SPAN1002",
+  ]);
 });
 test("search ignores accents and case, spans both languages and combines with type/course", () => {
   assert.equal(normalize("  COMPRENSIÓN  "), "comprension");
