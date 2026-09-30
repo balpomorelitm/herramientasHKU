@@ -66,11 +66,13 @@ test("deep links, galleries, keyboard and clipboard fallback", async ({
   await expect(page.locator("#galleryCaption")).toContainText("1 / 3");
   await page.keyboard.press("ArrowRight");
   await expect(page.locator("#galleryCaption")).toContainText("2 / 3");
-  expect(
-    await page
-      .locator("#galleryImage")
-      .evaluate((img) => img.complete && img.naturalWidth > 0),
-  ).toBe(true);
+  await expect
+    .poll(() =>
+      page
+        .locator("#galleryImage")
+        .evaluate((img) => img.complete && img.naturalWidth > 0),
+    )
+    .toBe(true);
   await page.keyboard.press("Escape");
   await expect(page.locator("#galleryDialog")).not.toBeVisible();
   await expect(card.locator(".thumbnail-button")).toBeFocused();
