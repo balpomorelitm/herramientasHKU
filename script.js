@@ -4,6 +4,8 @@ const copy = {
   en: {
     skip: "Skip to tools",
     programme: "Our programme",
+    brandSub: "DISCOVER · PLAY · LEARN",
+    collectionTitle: "Pick your next challenge",
     eyebrow: "YOUR SPANISH TOOLKIT",
     headline: "A little practice.",
     headlineAccent: "Mucho español.",
@@ -25,7 +27,7 @@ const copy = {
     madeBy: "Made by Pablo Torrado",
     footer:
       "Spanish Programme · School of Modern Languages and Cultures\nThe University of Hong Kong",
-    all: "All courses",
+    all: "All",
     general: "General",
     allTypes: "All resources",
     game: "Games",
@@ -58,6 +60,8 @@ const copy = {
   es: {
     skip: "Ir a las herramientas",
     programme: "Nuestro programa",
+    brandSub: "DESCUBRE · JUEGA · APRENDE",
+    collectionTitle: "Elige tu próximo reto",
     eyebrow: "TU CAJA DE HERRAMIENTAS",
     headline: "Un poco de práctica.",
     headlineAccent: "Mucho español.",
@@ -79,7 +83,7 @@ const copy = {
     madeBy: "Creado por Pablo Torrado",
     footer:
       "Programa de Español · School of Modern Languages and Cultures\nUniversidad de Hong Kong",
-    all: "Todos los cursos",
+    all: "Todos",
     general: "General",
     allTypes: "Todos los recursos",
     game: "Juegos",
@@ -147,6 +151,8 @@ function updateTheme() {
   document.documentElement.dataset.theme = theme;
   $("themeBtn").ariaLabel = t(theme === "light" ? "dark" : "light");
   $("themeBtn").title = $("themeBtn").ariaLabel;
+  document.querySelector('meta[name="theme-color"]').content =
+    theme === "dark" ? "#211f1b" : "#f1ebdd";
 }
 function translate() {
   document.documentElement.lang = state.lang;
@@ -209,6 +215,7 @@ function card(tool) {
     "tool-card" + (tool.id === state.tool ? " is-target" : ""),
   );
   article.id = "tool-" + tool.id;
+  article.dataset.type = tool.type;
   article.tabIndex = -1;
   const shot = tool.screenshots[0];
   const thumb = element("button", "thumbnail-button");

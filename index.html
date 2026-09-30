@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#174b41" />
+    <meta name="theme-color" content="#f1ebdd" />
     <meta
       name="description"
       content="Games, interactive stories and practice tools for learning Spanish at HKU. Find your course and start practising."
@@ -22,18 +22,30 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://spanishhkutools.netlify.app/" />
     <link rel="icon" href="favicon.ico" />
+    <link
+      rel="preload"
+      href="assets/fonts/anton-1.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/dm-sans-1.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Spanish Learning Tools · HKU</title>
   </head>
   <body>
     <a class="skip-link" href="#collection" data-i18n="skip">Skip to tools</a>
     <header class="site-header wrap">
-      <a class="brand" href="./" aria-label="Spanish Learning Tools · Home"
-        ><span class="brand-mark" aria-hidden="true">es<span>.</span></span
-        ><span
-          >SPANISH PROGRAMME<small>THE UNIVERSITY OF HONG KONG</small></span
-        ></a
-      >
+      <a class="brand" href="./" aria-label="Spanish Learning Tools · Home">
+        <span class="brand-name">ESPAÑOL <span>HKU</span></span>
+        <small data-i18n="brandSub">DISCOVER · PLAY · LEARN</small>
+      </a>
       <nav class="header-actions" aria-label="Page settings">
         <a
           class="department"
@@ -72,9 +84,9 @@
           </p>
         </div>
         <div class="hero-note" aria-hidden="true">
-          <span class="note-star">✳</span
-          ><span data-i18n="note">Play. Read.\nSpeak. Repeat.</span
-          ><span class="note-bottom">¡VAMOS!</span>
+          <span class="note-star">✳</span>
+          <span data-i18n="note">Play. Read. Speak. Repeat.</span>
+          <span class="note-bottom">¡VAMOS!</span>
         </div>
       </section>
       <section class="discovery" aria-label="Find tools">
@@ -128,7 +140,12 @@
         </div>
       </section>
       <div class="collection-top">
-        <p id="resultCount" role="status" aria-live="polite"></p>
+        <div>
+          <h2 class="collection-title" data-i18n="collectionTitle">
+            Pick your next challenge
+          </h2>
+          <p id="resultCount" role="status" aria-live="polite"></p>
+        </div>
         <span class="collection-hint" data-i18n="collectionHint"
           >A good day to learn something.</span
         >

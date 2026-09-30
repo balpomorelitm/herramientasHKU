@@ -10,6 +10,8 @@ El buscador consulta títulos, descripciones, cursos y etiquetas en español e i
 
 La interfaz comienza en inglés, permite cambiar a español y ofrece temas claro y oscuro. Las galerías se abren con teclado y admiten flechas y Escape. Compartir copia un enlace; si el navegador impide copiar, muestra el enlace para seleccionarlo. El catálogo funciona aunque el almacenamiento local esté bloqueado. No utiliza contadores de uso ni consultas a GitHub.
 
+El diseño combina fondo crema cuadriculado, rojo, titulares condensados, bordes y sombras marcados. Cada tipo de recurso tiene un color propio. En móvil las fichas muestran la captura junto al título; en escritorio usan galerías amplias. Anton y DM Sans se sirven desde `assets/fonts/`, con sus licencias OFL.
+
 Ejemplos para compartir:
 
 - Curso: `https://spanishhkutools.netlify.app/?course=SPAN1001`
