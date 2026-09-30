@@ -1,180 +1,2072 @@
 {
+  "metadata": {
+    "version": "3.0",
+    "lastUpdated": "2026-09-30"
+  },
   "tools": [
     {
-      "id": 1,
+      "id": "dibujitos-en-6-segundos",
+      "title": "Dibujitos en 6 segundos",
+      "description": {
+        "en": "Draw in six seconds and guess your classmates’ sketches. A quick vocabulary warm-up for groups.",
+        "es": "Dibuja en seis segundos y adivina los garabatos de tus compañeros. Una forma rápida de repasar vocabulario en grupo."
+      },
+      "link": "https://balpomorelitm.github.io/dibujitos-en-6-segundos/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/dibujitos-en-6-segundos/01.webp",
+          "alt": {
+            "es": "Portada del juego",
+            "en": "Game title screen"
+          }
+        },
+        {
+          "src": "assets/tools/dibujitos-en-6-segundos/02.webp",
+          "alt": {
+            "es": "Selección del modo de juego",
+            "en": "Game mode selection"
+          }
+        },
+        {
+          "src": "assets/tools/dibujitos-en-6-segundos/03.webp",
+          "alt": {
+            "es": "Tarjeta rápida para dibujar",
+            "en": "Quick drawing card"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "desanonimo",
+      "title": "Desanónimo",
+      "description": {
+        "en": "Try to write the same words as everyone else. Shared answers earn points in this word association game.",
+        "es": "Intenta escribir las mismas palabras que el resto. Las respuestas compartidas suman puntos en este juego de asociación de palabras."
+      },
+      "link": "https://balpomorelitm.github.io/desanonimo/unanimo.html",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/desanonimo/03.webp",
+          "alt": {
+            "es": "Carta de una partida en papel",
+            "en": "Card in paper game mode"
+          }
+        },
+        {
+          "src": "assets/tools/desanonimo/01.webp",
+          "alt": {
+            "es": "Inicio del juego de palabras",
+            "en": "Word game start screen"
+          }
+        },
+        {
+          "src": "assets/tools/desanonimo/02.webp",
+          "alt": {
+            "es": "Configuración de jugadores y rondas",
+            "en": "Player and round settings"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "conjugator",
       "title": "The Conjugator",
       "description": {
-        "en": "A Terminator-themed conjugation game with advanced verb selection and multiple game modes. Perfect for practicing verb tenses while dodging killer robots.",
-        "es": "Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego. Perfecto para practicar los tiempos verbales mientras esquivas robots asesinos."
+        "en": "Choose your verbs, tenses and difficulty, then practise conjugation against the clock or at your own pace.",
+        "es": "Elige verbos, tiempos y dificultad para practicar conjugación contrarreloj o a tu ritmo."
       },
-      "link": "https://conjugator.pablotorrado.site",
-      "subjects": {
-        "en": ["SPAN1001", "SPAN2001"],
-        "es": ["SPAN1001", "SPAN2001"]
+      "link": "https://theconjugator.netlify.app/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Grammar",
+          "Conjugation",
+          "Solo"
+        ],
+        "es": [
+          "Gramática",
+          "Conjugación",
+          "Individual"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-01-15",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/conjugator/03.webp",
+          "alt": {
+            "es": "Reto de verbos en juego",
+            "en": "Verb challenge in play"
+          }
+        },
+        {
+          "src": "assets/tools/conjugator/01.webp",
+          "alt": {
+            "es": "Selección del modo de conjugación",
+            "en": "Conjugation game mode selection"
+          }
+        },
+        {
+          "src": "assets/tools/conjugator/02.webp",
+          "alt": {
+            "es": "Selección de dificultad",
+            "en": "Difficulty selection"
+          }
+        }
+      ],
+      "dateAdded": "2024-01-15"
     },
     {
-      "id": 2,
-      "title": "SPAN1001 Palabrero",
+      "id": "bingo1001",
+      "title": "Bingo! · SPAN1001",
       "description": {
-        "en": "Interactive word game designed for SPAN1001 students. Each day presents a new word from the textbook vocabulary, following the semester's academic calendar.",
-        "es": "Juego de palabras interactivo diseñado para estudiantes del curso SPAN1001. Cada día presenta una nueva palabra del vocabulario del libro de texto, siguiendo el calendario académico del semestre."
+        "en": "Practise numbers and letters with editable bingo cards and a caller. Includes number words, hundreds and the alphabet.",
+        "es": "Practica números y letras con cartones editables y una máquina de sorteo. Incluye números en palabras, centenas y abecedario."
       },
-      "link": "https://1001palabrero.netlify.app",
-      "subjects": {
-        "en": ["SPAN1001"],
-        "es": ["SPAN1001"]
+      "link": "https://bingo1001.netlify.app/",
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Numbers",
+          "Alphabet",
+          "In class"
+        ],
+        "es": [
+          "Números",
+          "Alfabeto",
+          "En clase"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-02-20",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/bingo1001/01.webp",
+          "alt": {
+            "es": "Cartón del estudiante",
+            "en": "Student bingo card"
+          }
+        },
+        {
+          "src": "assets/tools/bingo1001/02.webp",
+          "alt": {
+            "es": "Máquina de sorteo del profesor",
+            "en": "Teacher draw machine"
+          }
+        },
+        {
+          "src": "assets/tools/bingo1001/03.webp",
+          "alt": {
+            "es": "Práctica del abecedario",
+            "en": "Alphabet practice"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
     },
     {
-      "id": 3,
+      "id": "latido-latino",
+      "title": "Latido Latino",
+      "description": {
+        "es": "Novela interactiva de nivel A2 sobre dos estudiantes de Hong Kong que recorren Latinoamérica para entregar seis cartas. Incluye glosario, apoyo gramatical y actividades para acompañar la lectura.",
+        "en": "An interactive A2 graded reader about two Hong Kong students travelling through Latin America to deliver six letters. Includes a glossary, grammar support and activities to accompany the story."
+      },
+      "link": "https://latidolatino.netlify.app/",
+      "courses": [
+        "SPAN2001"
+      ],
+      "type": "reading",
+      "tags": {
+        "en": [
+          "Reading",
+          "Vocabulary",
+          "Interactive"
+        ],
+        "es": [
+          "Lectura",
+          "Vocabulario",
+          "Interactivo"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/latido-latino/01.webp",
+          "alt": {
+            "es": "Portada de Latido Latino",
+            "en": "Latido Latino cover"
+          }
+        },
+        {
+          "src": "assets/tools/latido-latino/02.webp",
+          "alt": {
+            "es": "Lectura del prólogo",
+            "en": "Reading the prologue"
+          }
+        },
+        {
+          "src": "assets/tools/latido-latino/03.webp",
+          "alt": {
+            "es": "Glosario de la novela",
+            "en": "Novel glossary"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "speak-dating",
+      "title": "Speak Dating en español",
+      "description": {
+        "es": "Actividad visual para practicar las primeras conversaciones en español: presentarse, hablar del origen, las lenguas, la residencia y los gustos. Creada para las jornadas de puertas abiertas del Programa de Español de HKU.",
+        "en": "A visual activity for practising first conversations in Spanish: introductions, origins, languages, where you live and what you like. Created for the HKU Spanish Programme open days."
+      },
+      "link": "https://balpomorelitm.github.io/speed-dating-spanish/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Speaking",
+          "Introductions",
+          "In pairs"
+        ],
+        "es": [
+          "Expresión oral",
+          "Presentaciones",
+          "En parejas"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/speak-dating/01.webp",
+          "alt": {
+            "es": "Inicio de Speak Dating",
+            "en": "Speak Dating start screen"
+          }
+        },
+        {
+          "src": "assets/tools/speak-dating/02.webp",
+          "alt": {
+            "es": "Presentaciones en español",
+            "en": "Introductions in Spanish"
+          }
+        },
+        {
+          "src": "assets/tools/speak-dating/03.webp",
+          "alt": {
+            "es": "Tarjetas de conversación",
+            "en": "Conversation cards"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "voces-hku",
+      "title": "VOCES HKU",
+      "description": {
+        "es": "Web bilingüe y lector interactivo de VOCES, la revista estudiantil de español de HKU. Permite explorar las ediciones, leer con navegación por páginas e índice y descargar la revista en PDF.",
+        "en": "A bilingual website and interactive reader for VOCES, HKU’s student Spanish magazine. Browse issues, read with page navigation and a contents index, and download the magazine as a PDF."
+      },
+      "link": "https://voces-hku.netlify.app/",
+      "courses": [],
+      "type": "reading",
+      "tags": {
+        "en": [
+          "Reading",
+          "Culture",
+          "Magazine"
+        ],
+        "es": [
+          "Lectura",
+          "Cultura",
+          "Revista"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/voces-hku/01.webp",
+          "alt": {
+            "es": "Presentación de la revista VOCES",
+            "en": "VOCES magazine introduction"
+          }
+        },
+        {
+          "src": "assets/tools/voces-hku/02.webp",
+          "alt": {
+            "es": "Lectura de la revista estudiantil",
+            "en": "Student magazine reader"
+          }
+        },
+        {
+          "src": "assets/tools/voces-hku/03.webp",
+          "alt": {
+            "es": "Índice de la revista",
+            "en": "Magazine contents"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "imaginecards",
+      "title": "Imagine Cards",
+      "description": {
+        "es": "Tarjetas digitales de pistas y palabras para utilizar con el juego de mesa Imagine en clase de español. Incluyen traducciones al inglés al pulsar, un marcador de puntos y un mazo que evita repetir tarjetas.",
+        "en": "Digital clue and word cards to use alongside the Imagine board game in Spanish class. Includes English translations on tap, a score counter and a deck that avoids repeating cards."
+      },
+      "link": "https://balpomorelitm.github.io/imaginecards/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/imaginecards/01.webp",
+          "alt": {
+            "es": "Tarjeta de Imagine con ocho pistas y palabras",
+            "en": "Imagine card with eight clues and words"
+          }
+        },
+        {
+          "src": "assets/tools/imaginecards/02.webp",
+          "alt": {
+            "es": "Traducción al inglés de una palabra y marcador de puntos",
+            "en": "English word translation and score counter"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "palabrero",
+      "title": "Palabrero",
+      "description": {
+        "en": "Your daily Spanish word challenge, with a version for each course. Guess the hidden word, use a hint or practise at your own pace.",
+        "es": "Tu reto diario de palabras en español, con una versión para cada curso. Adivina la palabra, utiliza una pista o practica a tu ritmo."
+      },
+      "link": "https://span1001palabrero.netlify.app/",
+      "courses": [
+        "SPAN1001",
+        "SPAN1002",
+        "SPAN2001"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "Daily practice",
+          "Wordle"
+        ],
+        "es": [
+          "Vocabulario",
+          "Práctica diaria",
+          "Wordle"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/palabrero/01.webp",
+          "alt": {
+            "es": "Palabrero SPAN1001: práctica de vocabulario",
+            "en": "SPAN1001 Palabrero vocabulary practice"
+          }
+        },
+        {
+          "src": "assets/tools/palabrero/02.webp",
+          "alt": {
+            "es": "Palabrero SPAN1002: modo de práctica",
+            "en": "SPAN1002 Palabrero practice mode"
+          }
+        },
+        {
+          "src": "assets/tools/palabrero/03.webp",
+          "alt": {
+            "es": "Palabrero SPAN2001: práctica de vocabulario",
+            "en": "SPAN2001 Palabrero vocabulary practice"
+          }
+        }
+      ],
+      "dateAdded": "2024-02-20",
+      "variants": [
+        {
+          "course": "SPAN1001",
+          "label": "SPAN1001",
+          "link": "https://span1001palabrero.netlify.app/"
+        },
+        {
+          "course": "SPAN1002",
+          "label": "SPAN1002",
+          "link": "https://span1002palabrero.netlify.app/"
+        },
+        {
+          "course": "SPAN2001",
+          "label": "SPAN2001",
+          "link": "https://span2001palabrero.netlify.app/"
+        }
+      ],
+      "aliases": [
+        "Wordle",
+        "Palabrero SPAN1001",
+        "Palabrero SPAN1002",
+        "Palabrero SPAN2001"
+      ]
+    },
+    {
+      "id": "desencripta",
       "title": "Desencripta",
       "description": {
-        "en": "Digital adaptation of the Decrypto board game. Built with HTML, CSS and JavaScript, bringing the secret code transmission experience to your browser. Extensive vocabulary with 900+ lexical units.",
-        "es": "Adaptación digital del juego de mesa Decrypto. Desarrollado con HTML, CSS y JavaScript, lleva la experiencia de transmitir códigos secretos al navegador. Amplio vocabulario con más de 900 unidades léxicas."
+        "en": "Give clues and decode your team’s secret numbers. A game of vocabulary and deduction inspired by Decrypto.",
+        "es": "Da pistas y descifra los números secretos de tu equipo. Un juego de vocabulario y deducción inspirado en Decrypto."
       },
-      "link": "https://desencripta.pablotorrado.site",
-      "subjects": {
-        "en": ["SPAN2001", "SPAN2002"],
-        "es": ["SPAN2001", "SPAN2002"]
+      "link": "https://desencripta.pablotorrado.space",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-03-10",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/desencripta/03.webp",
+          "alt": {
+            "es": "Tablero y palabras del equipo",
+            "en": "Board and team words"
+          }
+        },
+        {
+          "src": "assets/tools/desencripta/01.webp",
+          "alt": {
+            "es": "Inicio de Desencripta",
+            "en": "Desencripta start screen"
+          }
+        },
+        {
+          "src": "assets/tools/desencripta/02.webp",
+          "alt": {
+            "es": "Preparación de los equipos",
+            "en": "Team setup"
+          }
+        }
+      ],
+      "dateAdded": "2024-03-10"
     },
     {
-      "id": 4,
+      "id": "batalla",
       "title": "Batalla Verbal",
       "description": {
-        "en": "Innovative game combining classic battleship strategy with grammar practice. Each attack requires correct verb conjugation. Sink your frenemy with your verb-missiles!",
-        "es": "Innovador juego que combina la estrategia del clásico hundir la flota con práctica de gramática. Cada ataque requiere conjugar un verbo correctamente. ¡Hunde a tu frenemigo con tus verbomisiles!"
+        "en": "Play battleships with Spanish verbs. Combine strategy and conjugation to find the other team’s fleet.",
+        "es": "Juega a hundir la flota con verbos en español. Combina estrategia y conjugación para encontrar los barcos del otro equipo."
       },
-      "link": "https://batallaverbal.netlify.app",
-      "subjects": {
-        "en": ["SPAN1002", "SPAN2001"],
-        "es": ["SPAN1002", "SPAN2001"]
+      "link": "https://batallaverbal.netlify.app/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Grammar",
+          "Conjugation",
+          "Strategy"
+        ],
+        "es": [
+          "Gramática",
+          "Conjugación",
+          "Estrategia"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-03-25",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/batalla/01.webp",
+          "alt": {
+            "es": "Tablero de la batalla verbal",
+            "en": "Verb battle board"
+          }
+        },
+        {
+          "src": "assets/tools/batalla/02.webp",
+          "alt": {
+            "es": "Selección de tiempos y verbos",
+            "en": "Tense and verb selection"
+          }
+        }
+      ],
+      "dateAdded": "2024-03-25"
     },
     {
-      "id": 5,
+      "id": "atun",
       "title": "Atún Feliz",
       "description": {
-        "en": "Digital adaptation of the Happy Salmon card game, created for educational purposes to practice vocabulary and reflexes. Features animations and sounds that make the experience more engaging.",
+        "en": "A digital adaptation of the card game Happy Salmon, created for educational purposes to practice vocabulary and reflexes. Includes animations and sound effects to enliven the experience.",
         "es": "Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos. Incluye animaciones y sonidos que amenizan la experiencia."
       },
-      "link": "https://atunfeliz.pablotorrado.site",
-      "subjects": {
-        "en": ["SPAN1001"],
-        "es": ["SPAN1001"]
+      "link": "https://atunfeliz.pablotorrado.space",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-04-05",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/atun/02.webp",
+          "alt": {
+            "es": "Carta de acciones para jugar",
+            "en": "Action card for play"
+          }
+        },
+        {
+          "src": "assets/tools/atun/01.webp",
+          "alt": {
+            "es": "Inicio de Atún Feliz",
+            "en": "Atún Feliz start screen"
+          }
+        }
+      ],
+      "dateAdded": "2024-04-05"
     },
     {
-      "id": 6,
+      "id": "charaditas",
       "title": "Charaditas",
       "description": {
-        "en": "Our personal version of Charades with A1 and A2 CEFR vocabulary. Perfect for practicing vocabulary in a fun and group-friendly way.",
-        "es": "Nuestra versión personal de Charades con vocabulario de A1 y A2 del MCERL. Ideal para practicar vocabulario de forma divertida y en grupo."
+        "en": "Our personal version of Charades with A1-A2 CEFR vocabulary.",
+        "es": "Nuestra versión personal de Charades pero con vocabulario de A1 y A2 del MCER."
       },
-      "link": "https://charaditas.pablotorrado.site",
-      "subjects": {
-        "en": ["SPAN1001", "SPAN1002"],
-        "es": ["SPAN1001", "SPAN1002"]
+      "link": "https://charaditas.pablotorrado.space",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-04-18",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/charaditas/03.webp",
+          "alt": {
+            "es": "Palabra para representar",
+            "en": "Word to act out"
+          }
+        },
+        {
+          "src": "assets/tools/charaditas/01.webp",
+          "alt": {
+            "es": "Inicio de Charaditas",
+            "en": "Charaditas start screen"
+          }
+        },
+        {
+          "src": "assets/tools/charaditas/02.webp",
+          "alt": {
+            "es": "Configuración de nivel y categorías",
+            "en": "Level and category settings"
+          }
+        }
+      ],
+      "dateAdded": "2024-04-18"
     },
     {
-      "id": 7,
+      "id": "palabras-clave",
       "title": "Palabras Clave",
       "description": {
-        "en": "Secret code game for Spanish students using the CVC word bank (A1-A2 level). Perfect for reviewing vocabulary and fostering teamwork.",
+        "en": "A secret code-style game for Spanish students using the CVC word bank (Level A1-A2). Perfect for revising vocabulary and encouraging teamwork.",
         "es": "Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2). Ideal para repasar vocabulario y fomentar el trabajo en equipo."
       },
-      "link": "https://palabrasclave.pablotorrado.site",
-      "subjects": {
-        "en": ["SPAN1001", "SPAN1002", "SPAN2001"],
-        "es": ["SPAN1001", "SPAN1002", "SPAN2001"]
+      "link": "https://palabrasclave.pablotorrado.space",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
       },
-      "type": {
-        "en": "Game",
-        "es": "Juego"
-      },
-      "dateAdded": "2024-05-02",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/palabras-clave/01.webp",
+          "alt": {
+            "es": "Tablero de palabras",
+            "en": "Word board"
+          }
+        },
+        {
+          "src": "assets/tools/palabras-clave/02.webp",
+          "alt": {
+            "es": "Vista del espía",
+            "en": "Spymaster view"
+          }
+        }
+      ],
+      "dateAdded": "2024-05-02"
     },
     {
-      "id": 8,
+      "id": "lunatico",
+      "title": "Lunático",
+      "description": {
+        "en": "A template for designing and printing your own copy of the Lunático game. Simply match each number with an image and an expression, cut them out, and play!",
+        "es": "Una plantilla para diseñar e imprimir tu propia copia del juego Lunático. Simplemente relaciona cada número con una imagen y una expresión, recorta y ¡juega!"
+      },
+      "link": "assets/documents/Lunatico.docx",
+      "courses": [],
+      "type": "resource",
+      "tags": {
+        "en": [
+          "Print & play",
+          "Vocabulary",
+          "In class"
+        ],
+        "es": [
+          "Imprimir y jugar",
+          "Vocabulario",
+          "En clase"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/lunatico/01.webp",
+          "alt": {
+            "en": "Lunático",
+            "es": "Lunático"
+          }
+        },
+        {
+          "src": "assets/tools/lunatico/02.webp",
+          "alt": {
+            "es": "Vista del contenido de la plantilla: tarjetas numeradas",
+            "en": "Document content preview: numbered cards"
+          }
+        },
+        {
+          "src": "assets/tools/lunatico/03.webp",
+          "alt": {
+            "es": "Vista del contenido de la plantilla: tabla de expresiones",
+            "en": "Document content preview: expression table"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30",
+      "download": true
+    },
+    {
+      "id": "elultimotango",
+      "title": "El Último Tango de una Llave",
+      "description": {
+        "en": "An interactive mystery for SPAN1002, with a glossary, reading activities and support for the Spanish past tenses.",
+        "es": "Una novela de misterio para SPAN1002, con glosario, actividades de lectura y apoyo para practicar los tiempos del pasado."
+      },
+      "link": "https://elultimotangodeunallave.netlify.app/",
+      "courses": [
+        "SPAN1002"
+      ],
+      "type": "reading",
+      "tags": {
+        "en": [
+          "Reading",
+          "Vocabulary",
+          "Interactive"
+        ],
+        "es": [
+          "Lectura",
+          "Vocabulario",
+          "Interactivo"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/elultimotango/01.webp",
+          "alt": {
+            "es": "Portada de la novela",
+            "en": "Novel cover"
+          }
+        },
+        {
+          "src": "assets/tools/elultimotango/02.webp",
+          "alt": {
+            "es": "Lectura del primer capítulo",
+            "en": "Reading the first chapter"
+          }
+        },
+        {
+          "src": "assets/tools/elultimotango/03.webp",
+          "alt": {
+            "es": "Glosario de la novela",
+            "en": "Novel glossary"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "tabusabroso",
+      "title": "Tabú Sabroso",
+      "description": {
+        "en": "A food-themed Taboo game for SPAN1002 students. Describe food vocabulary without saying the forbidden words. Includes adjustable timers, pass limits, a buzzer for opponents and a complete food lexicon.",
+        "es": "Un juego de Tabú temático de comida para estudiantes de SPAN1002. Describe vocabulario de comida sin decir las palabras prohibidas. Incluye temporizadores ajustables, límite de pases, buzzer para oponentes y un léxico completo de alimentos."
+      },
+      "link": "https://tabusabroso1002.netlify.app/",
+      "courses": [
+        "SPAN1002"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/tabusabroso/01.webp",
+          "alt": {
+            "es": "Turno de juego con palabras prohibidas",
+            "en": "Game turn with forbidden words"
+          }
+        },
+        {
+          "src": "assets/tools/tabusabroso/02.webp",
+          "alt": {
+            "es": "Léxico ilustrado de alimentos",
+            "en": "Illustrated food lexicon"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "acomer1002",
+      "title": "¡A Comer!",
+      "description": {
+        "en": "A board game about food for SPAN1002. Choose players, pick tokens and roll a 4-sided die to advance by answering food-related questions in Spanish. Supports 2 to 4 players.",
+        "es": "Un juego de mesa sobre comida para SPAN1002. Elige jugadores, escoge fichas y tira un dado de 4 caras para avanzar respondiendo preguntas sobre comida en español. Para 2 a 4 jugadores."
+      },
+      "link": "https://acomer1002.netlify.app/",
+      "courses": [
+        "SPAN1002"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/acomer1002/03.webp",
+          "alt": {
+            "es": "Tablero de la partida",
+            "en": "Game board"
+          }
+        },
+        {
+          "src": "assets/tools/acomer1002/01.webp",
+          "alt": {
+            "es": "Preparación de jugadores",
+            "en": "Player setup"
+          }
+        },
+        {
+          "src": "assets/tools/acomer1002/02.webp",
+          "alt": {
+            "es": "Selección de fichas",
+            "en": "Token selection"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "mockorales",
+      "title": "SPAN1002 Oral Practice",
+      "description": {
+        "en": "Choose a unit and practise your SPAN1002 oral exam: warm up, prepare a topic, give a short presentation and have a conversation.",
+        "es": "Elige una unidad y practica tu examen oral de SPAN1002: calentamiento, preparación, presentación breve y conversación."
+      },
+      "link": "https://oral1002.netlify.app/",
+      "courses": [
+        "SPAN1002"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Speaking",
+          "Revision",
+          "Exam practice"
+        ],
+        "es": [
+          "Expresión oral",
+          "Repaso",
+          "Exámenes"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/mockorales/01.webp",
+          "alt": {
+            "es": "Selección de temas para practicar",
+            "en": "Practice topic selection"
+          }
+        },
+        {
+          "src": "assets/tools/mockorales/02.webp",
+          "alt": {
+            "es": "Práctica oral de comida",
+            "en": "Food speaking practice"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "desdequeteperdi",
+      "title": "Desde Que Te Perdí",
+      "description": {
+        "en": "A listening comprehension exercise based on the song \"Desde que te perdí\" by Kevin Johansen. Students listen to the song and fill in the gaps in the lyrics while learning new vocabulary through hover tooltips.",
+        "es": "Un ejercicio de comprensión auditiva basado en la canción \"Desde que te perdí\" de Kevin Johansen. Los estudiantes escuchan la canción y completan los huecos en la letra mientras aprenden vocabulario nuevo con tooltips."
+      },
+      "link": "https://balpomorelitm.github.io/desdequeteperdi/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Listening",
+          "Vocabulary",
+          "Practice"
+        ],
+        "es": [
+          "Comprensión oral",
+          "Vocabulario",
+          "Práctica"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/desdequeteperdi/01.webp",
+          "alt": {
+            "es": "Actividad de comprensión auditiva",
+            "en": "Listening comprehension activity"
+          }
+        },
+        {
+          "src": "assets/tools/desdequeteperdi/02.webp",
+          "alt": {
+            "es": "Revisión de respuestas",
+            "en": "Answer review"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "unsemestre",
+      "title": "Un Semestre Loco",
+      "description": {
+        "en": "A fun fill-in-the-gaps song exercise about university life at HKU. Students complete the lyrics of a custom song that incorporates course vocabulary, teacher names, and campus references.",
+        "es": "Un divertido ejercicio de rellenar huecos con una canción sobre la vida universitaria en la HKU. Los estudiantes completan la letra de una canción personalizada que incorpora vocabulario del curso, nombres de profesores y referencias del campus."
+      },
+      "link": "https://balpomorelitm.github.io/unsemestre/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Listening",
+          "Vocabulary",
+          "Practice"
+        ],
+        "es": [
+          "Comprensión oral",
+          "Vocabulario",
+          "Práctica"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/unsemestre/01.webp",
+          "alt": {
+            "es": "Actividad musical y primeros versos",
+            "en": "Song activity and first verses"
+          }
+        },
+        {
+          "src": "assets/tools/unsemestre/02.webp",
+          "alt": {
+            "es": "Segunda parte de la actividad",
+            "en": "Second part of the activity"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "span1001loco",
+      "title": "One Semester of Spanish Love Song",
+      "description": {
+        "en": "An interactive exercise based on the humorous \"One Semester of Spanish Love Song\". Students complete the lyrics with basic Spanish phrases using visual clues and emoji hints. Perfect for absolute beginners.",
+        "es": "Un ejercicio interactivo basado en la divertida \"One Semester of Spanish Love Song\". Los estudiantes completan la letra con frases básicas del español usando pistas visuales y emojis. Perfecto para principiantes absolutos."
+      },
+      "link": "https://balpomorelitm.github.io/span1001loco/",
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Listening",
+          "Vocabulary",
+          "Practice"
+        ],
+        "es": [
+          "Comprensión oral",
+          "Vocabulario",
+          "Práctica"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/span1001loco/01.webp",
+          "alt": {
+            "es": "Ejercicios con pistas visuales",
+            "en": "Exercises with visual clues"
+          }
+        },
+        {
+          "src": "assets/tools/span1001loco/02.webp",
+          "alt": {
+            "es": "Letra de la canción",
+            "en": "Song lyrics"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "2001pp2",
+      "title": "Misión PP2",
+      "description": {
+        "en": "A classroom board game where students must sneak to the teacher's desk to peek at the PP2 exam while the teacher has fallen asleep. Answer questions correctly to advance. Supports 2 to 5 players.",
+        "es": "Un juego de mesa para clase donde los estudiantes deben llegar al escritorio del profesor para echar un vistazo al examen PP2 mientras el profesor se ha quedado dormido. Responde correctamente para avanzar. De 2 a 5 jugadores."
+      },
+      "link": "https://balpomorelitm.github.io/2001pp2/",
+      "courses": [
+        "SPAN2001"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/2001pp2/03.webp",
+          "alt": {
+            "es": "Tablero de la misión",
+            "en": "Mission board"
+          }
+        },
+        {
+          "src": "assets/tools/2001pp2/01.webp",
+          "alt": {
+            "es": "Selección del número de jugadores",
+            "en": "Player count selection"
+          }
+        },
+        {
+          "src": "assets/tools/2001pp2/02.webp",
+          "alt": {
+            "es": "Preparación de la misión",
+            "en": "Mission setup"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "eldiarioloco",
+      "title": "El Diario Loco",
+      "description": {
+        "en": "Write surprising news stories while practising the preterite and imperfect. Includes verb reference, time markers and useful expressions.",
+        "es": "Escribe noticias sorprendentes mientras practicas el indefinido y el imperfecto. Incluye verbos de consulta, marcadores temporales y expresiones útiles."
+      },
+      "link": "https://balpomorelitm.github.io/eldiarioloco/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Writing",
+          "Past tenses",
+          "Creativity"
+        ],
+        "es": [
+          "Escritura",
+          "Pasados",
+          "Creatividad"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/eldiarioloco/01.webp",
+          "alt": {
+            "es": "Generador de titulares",
+            "en": "Headline generator"
+          }
+        },
+        {
+          "src": "assets/tools/eldiarioloco/02.webp",
+          "alt": {
+            "es": "Ejemplo de noticia",
+            "en": "Example news story"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "span3026",
+      "title": "Mapa Lingüístico del Español",
+      "description": {
+        "en": "An interactive map exploring the dialectal varieties of Spanish around the world. Includes exploration mode, filtering by linguistic features, phrase challenges and character identification quizzes. Designed for the SPAN3026 course at HKU.",
+        "es": "Un mapa interactivo que explora las variedades dialectales del español en el mundo. Incluye modo de exploración, filtrado por rasgos lingüísticos, desafíos de frases e identificación de personajes. Diseñado para la asignatura SPAN3026 de la HKU."
+      },
+      "link": "https://balpomorelitm.github.io/span3026/",
+      "courses": [
+        "SPAN3026"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Culture",
+          "Dialects",
+          "Map"
+        ],
+        "es": [
+          "Cultura",
+          "Dialectos",
+          "Mapa"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/span3026/01.webp",
+          "alt": {
+            "es": "Mapa de variedades del español",
+            "en": "Map of Spanish varieties"
+          }
+        },
+        {
+          "src": "assets/tools/span3026/02.webp",
+          "alt": {
+            "es": "Filtros de rasgos lingüísticos",
+            "en": "Linguistic feature filters"
+          }
+        },
+        {
+          "src": "assets/tools/span3026/03.webp",
+          "alt": {
+            "es": "Desafío de identificación de frases",
+            "en": "Phrase identification challenge"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "mapamundi",
+      "title": "Mapamundi",
+      "description": {
+        "en": "A globe-based geography guessing game in Spanish. Players identify countries on a 3D globe, earning points for correct answers. Includes a hint system, leaderboard and score tracking.",
+        "es": "Un juego de adivinanza geográfica en español con un globo terráqueo 3D. Los jugadores identifican países en el globo, ganando puntos por respuestas correctas. Incluye sistema de pistas, tabla de clasificación y seguimiento de puntuación."
+      },
+      "link": "https://balpomorelitm.github.io/mapamundi/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Geography",
+          "Countries",
+          "Vocabulary"
+        ],
+        "es": [
+          "Geografía",
+          "Países",
+          "Vocabulario"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/mapamundi/01.webp",
+          "alt": {
+            "es": "Globo y pistas del país",
+            "en": "Globe and country clues"
+          }
+        },
+        {
+          "src": "assets/tools/mapamundi/02.webp",
+          "alt": {
+            "es": "Pistas adicionales para adivinar el país",
+            "en": "Additional clues to identify the country"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "medicoloco",
+      "title": "Médico Loco",
+      "description": {
+        "en": "A hilarious roleplay game for practising health vocabulary and grammar structures. Patients act out random symptoms while doctors must construct absurd advice using structures like \"tiene que + infinitivo\" or \"debe + infinitivo\".",
+        "es": "Un divertido juego de roles para practicar vocabulario de salud y estructuras gramaticales. Los pacientes actúan síntomas aleatorios mientras los médicos construyen consejos absurdos usando estructuras como \"tiene que + infinitivo\" o \"debe + infinitivo\"."
+      },
+      "link": "https://balpomorelitm.github.io/Medicoloco/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "In class",
+          "Games"
+        ],
+        "es": [
+          "Vocabulario",
+          "En clase",
+          "Juegos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/medicoloco/02.webp",
+          "alt": {
+            "es": "Tarjeta del paciente",
+            "en": "Patient card"
+          }
+        },
+        {
+          "src": "assets/tools/medicoloco/01.webp",
+          "alt": {
+            "es": "Selección de rol",
+            "en": "Role selection"
+          }
+        },
+        {
+          "src": "assets/tools/medicoloco/03.webp",
+          "alt": {
+            "es": "Consulta del médico",
+            "en": "Doctor consultation"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "elalmadesevilla",
       "title": "El Alma de Sevilla",
       "description": {
-        "en": "An immersive interactive Spanish learning experience set in the heart of Seville. Follow Leo, a young student from Hong Kong, as he discovers the mysteries and beauty of Andalusia through photography, friendship, and language learning.",
-        "es": "Una experiencia inmersiva e interactiva de aprendizaje de español ambientada en el corazón de Sevilla. Sigue a Leo, un joven estudiante de Hong Kong, mientras descubre los misterios y la belleza de Andalucía a través de la fotografía, la amistad y el aprendizaje de idiomas."
+        "en": "An interactive novel of mystery, photography and discovery in the heart of Andalusia. A short story designed to improve Spanish for total beginners, with chapter-by-chapter activities and vocabulary support.",
+        "es": "Una novela interactiva de misterio, fotografía y descubrimiento en el corazón de Andalucía. Una historia corta diseñada para mejorar el español de principiantes absolutos, con actividades capítulo a capítulo y apoyo de vocabulario."
       },
       "link": "https://elalmadesevilla.netlify.app/",
-      "subjects": {
-        "en": ["SPAN1001"],
-        "es": ["SPAN1001"]
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "reading",
+      "tags": {
+        "en": [
+          "Reading",
+          "Vocabulary",
+          "Interactive"
+        ],
+        "es": [
+          "Lectura",
+          "Vocabulario",
+          "Interactivo"
+        ]
       },
-      "type": {
-        "en": "Resource",
-        "es": "Recurso"
-      },
-      "dateAdded": "2025-06-21",
-      "usageCount": 0
+      "screenshots": [
+        {
+          "src": "assets/tools/elalmadesevilla/01.webp",
+          "alt": {
+            "es": "Portada de El Alma de Sevilla",
+            "en": "El Alma de Sevilla cover"
+          }
+        },
+        {
+          "src": "assets/tools/elalmadesevilla/02.webp",
+          "alt": {
+            "es": "Lectura del primer capítulo",
+            "en": "Reading the first chapter"
+          }
+        },
+        {
+          "src": "assets/tools/elalmadesevilla/03.webp",
+          "alt": {
+            "es": "Glosario y tarjetas de vocabulario",
+            "en": "Glossary and vocabulary flashcards"
+          }
+        }
+      ],
+      "dateAdded": "2025-06-21"
     },
     {
-      "id": 9,
-      "title": "Mapa de Recursos Español",
+      "id": "profebot",
+      "title": "ProfeBot",
       "description": {
-        "en": "Interactive resource map created in Miro containing comprehensive materials and tools for Spanish language learning. Visual organization of resources across all course levels.",
-        "es": "Mapa interactivo de recursos creado en Miro que contiene materiales y herramientas completas para el aprendizaje del español. Organización visual de recursos para todos los niveles del curso."
+        "en": "Your Spanish Year 1 tutor. Ask about grammar, vocabulary and your course, or get help with writing and conversation practice. For SPAN1001 and SPAN1002.",
+        "es": "Tu tutor de español de primer año. Consulta gramática, vocabulario y dudas del curso, o practica escritura y conversación. Para SPAN1001 y SPAN1002."
       },
-      "link": "https://miro.com/app/board/o9J_lM0Ezo4=/",
-      "subjects": {
-        "en": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"],
-        "es": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"]
+      "link": "https://profebotsphku.streamlit.app/",
+      "courses": [
+        "SPAN1001",
+        "SPAN1002"
+      ],
+      "type": "chatbot",
+      "tags": {
+        "en": [
+          "Questions",
+          "Writing",
+          "Conversation"
+        ],
+        "es": [
+          "Dudas",
+          "Escritura",
+          "Conversación"
+        ]
       },
-      "type": {
-        "en": "Resource",
-        "es": "Recurso"
+      "screenshots": [
+        {
+          "src": "assets/tools/profebot/01.webp",
+          "alt": {
+            "es": "Inicio de ProfeBot con unidades del curso",
+            "en": "ProfeBot start screen with course units"
+          }
+        },
+        {
+          "src": "assets/tools/profebot/02.webp",
+          "alt": {
+            "es": "Ejemplo de consulta de español y respuesta del tutor",
+            "en": "Example Spanish question and tutor response"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "cadena-de-numeros",
+      "title": "Cadena de números",
+      "description": {
+        "en": "Listen, find your number and keep the chain going. Practise numbers and spelling with two or three players, reference guides and printable cards.",
+        "es": "Escucha, encuentra tu número y continúa la cadena. Practica números y deletreo con dos o tres jugadores, guías de consulta y tarjetas imprimibles."
       },
-      "dateAdded": "2024-08-28",
-      "usageCount": 0
+      "link": "https://cadena-de-numeros.netlify.app/",
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Numbers",
+          "Alphabet",
+          "Speaking"
+        ],
+        "es": [
+          "Números",
+          "Alfabeto",
+          "Expresión oral"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/cadena-de-numeros/01.webp",
+          "alt": {
+            "es": "Preparación de la cadena",
+            "en": "Chain setup"
+          }
+        },
+        {
+          "src": "assets/tools/cadena-de-numeros/02.webp",
+          "alt": {
+            "es": "Tarjeta del jugador A",
+            "en": "Player A card"
+          }
+        },
+        {
+          "src": "assets/tools/cadena-de-numeros/03.webp",
+          "alt": {
+            "es": "Guía de los números en español",
+            "en": "Spanish number reference"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "culturaspan1001",
+      "title": "Cultural Survival Manual",
+      "description": {
+        "en": "Explore everyday encounters in the Spanish-speaking world: greetings, names, shops, queues, small talk and tips. Three interactive cultural workshops.",
+        "es": "Explora situaciones cotidianas del mundo hispanohablante: saludos, nombres, tiendas, colas, conversaciones y propinas. Tres talleres culturales interactivos."
+      },
+      "link": "https://culturaspan1001.netlify.app/",
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Culture",
+          "Everyday life",
+          "Speaking"
+        ],
+        "es": [
+          "Cultura",
+          "Vida cotidiana",
+          "Expresión oral"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/culturaspan1001/01.webp",
+          "alt": {
+            "es": "Tres talleres de supervivencia cultural",
+            "en": "Three cultural survival workshops"
+          }
+        },
+        {
+          "src": "assets/tools/culturaspan1001/02.webp",
+          "alt": {
+            "es": "Taller de primeros encuentros",
+            "en": "First encounters workshop"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "vocab-games",
+      "title": "Vocab Games",
+      "description": {
+        "en": "A collection of vocabulary games for first-year Spanish: Pasapalabra, flashcards, crosswords, Word Connect, Strands, gap fills, charades and Pictionary.",
+        "es": "Una colección de juegos de vocabulario de primer año: Pasapalabra, tarjetas, crucigramas, Word Connect, Strands, huecos, mímica y Pictionary."
+      },
+      "link": "https://vocab-games.netlify.app/",
+      "courses": [
+        "SPAN1001",
+        "SPAN1002"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "Revision",
+          "Word games"
+        ],
+        "es": [
+          "Vocabulario",
+          "Repaso",
+          "Juegos de palabras"
+        ]
+      },
+      "aliases": [
+        "Pasapalabra",
+        "flashcards",
+        "crossword",
+        "crucigramas",
+        "Word Connect",
+        "Strands",
+        "fill the gap",
+        "charades",
+        "Pictionary",
+        "tarjetas"
+      ],
+      "screenshots": [
+        {
+          "src": "assets/tools/vocab-games/01.webp",
+          "alt": {
+            "es": "Colección de juegos de vocabulario",
+            "en": "Vocabulary game collection"
+          }
+        },
+        {
+          "src": "assets/tools/vocab-games/02.webp",
+          "alt": {
+            "es": "Pasapalabra: tablero y pistas",
+            "en": "Pasapalabra letter ring and clues"
+          }
+        },
+        {
+          "src": "assets/tools/vocab-games/03.webp",
+          "alt": {
+            "es": "Tarjetas de vocabulario en juego",
+            "en": "Vocabulary flashcards in play"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "escaleraspan2002",
+      "title": "La Escalera al Éxito Profesional",
+      "description": {
+        "en": "A classroom board game about job interviews. Answer the questions and move towards your first permanent contract, with two to five players.",
+        "es": "Un juego de tablero sobre entrevistas de trabajo. Responde a las preguntas y avanza hasta conseguir tu primer contrato indefinido, con dos a cinco jugadores."
+      },
+      "link": "https://escaleraspan2002.netlify.app/",
+      "courses": [
+        "SPAN2002"
+      ],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Work",
+          "Speaking",
+          "In class"
+        ],
+        "es": [
+          "Trabajo",
+          "Expresión oral",
+          "En clase"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/escaleraspan2002/03.webp",
+          "alt": {
+            "es": "Tablero de entrevistas de trabajo",
+            "en": "Job interview board"
+          }
+        },
+        {
+          "src": "assets/tools/escaleraspan2002/01.webp",
+          "alt": {
+            "es": "Preparación del juego de entrevistas",
+            "en": "Interview game setup"
+          }
+        },
+        {
+          "src": "assets/tools/escaleraspan2002/02.webp",
+          "alt": {
+            "es": "Selección de candidatos",
+            "en": "Candidate selection"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "quedificil3026",
+      "title": "Qué difícil es hablar el español",
+      "description": {
+        "en": "Discover how Spanish changes across regions through a song, vocabulary challenges and an interactive dialect explorer.",
+        "es": "Descubre cómo cambia el español entre regiones con una canción, retos de vocabulario y un explorador interactivo de dialectos."
+      },
+      "link": "https://quedificil3026.netlify.app/",
+      "courses": [
+        "SPAN3026"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Dialects",
+          "Listening",
+          "Culture"
+        ],
+        "es": [
+          "Dialectos",
+          "Comprensión oral",
+          "Cultura"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/quedificil3026/01.webp",
+          "alt": {
+            "es": "Retos de vocabulario dialectal",
+            "en": "Dialect vocabulary challenges"
+          }
+        },
+        {
+          "src": "assets/tools/quedificil3026/02.webp",
+          "alt": {
+            "es": "Actividad de la canción",
+            "en": "Song activity"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "verboser",
+      "title": "El verbo ser",
+      "description": {
+        "en": "Review the uses of ser, complete the sentences and check your answers. Restart for another set of practice questions.",
+        "es": "Repasa los usos de ser, completa las frases y comprueba tus respuestas. Reinicia para practicar otra tanda de preguntas."
+      },
+      "link": "https://balpomorelitm.github.io/verboser/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Grammar",
+          "Conjugation",
+          "Ser"
+        ],
+        "es": [
+          "Gramática",
+          "Conjugación",
+          "Ser"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/verboser/01.webp",
+          "alt": {
+            "es": "Usos del verbo ser",
+            "en": "Uses of the verb ser"
+          }
+        },
+        {
+          "src": "assets/tools/verboser/02.webp",
+          "alt": {
+            "es": "Corrección de los ejercicios",
+            "en": "Exercise feedback"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "feedback-span1001",
+      "title": "Writing Practice · SPAN1001",
+      "description": {
+        "en": "Work through common writing mistakes with sentence correction, hints and feedback on grammar and vocabulary.",
+        "es": "Practica los errores frecuentes de escritura con corrección de frases, pistas y comentarios de gramática y vocabulario."
+      },
+      "link": "https://balpomorelitm.github.io/feedbacktarescri2025/",
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Writing",
+          "Grammar",
+          "Revision"
+        ],
+        "es": [
+          "Escritura",
+          "Gramática",
+          "Repaso"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/feedback-span1001/01.webp",
+          "alt": {
+            "es": "Consejos para mejorar la escritura",
+            "en": "Writing improvement tips"
+          }
+        },
+        {
+          "src": "assets/tools/feedback-span1001/02.webp",
+          "alt": {
+            "es": "Práctica con pistas de corrección",
+            "en": "Correction practice with hints"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "curso-span1001",
+      "title": "Primeros pasos · SPAN1001",
+      "description": {
+        "en": "Six introductory lessons on greetings, the alphabet, sounds, numbers, key questions and cognates. A companion for your first steps in Spanish.",
+        "es": "Seis lecciones iniciales sobre saludos, abecedario, sonidos, números, preguntas clave y cognados. Un apoyo para tus primeros pasos en español."
+      },
+      "link": "https://balpomorelitm.github.io/curso-espanol-span1001/",
+      "courses": [
+        "SPAN1001"
+      ],
+      "type": "resource",
+      "tags": {
+        "en": [
+          "First steps",
+          "Vocabulary",
+          "Revision"
+        ],
+        "es": [
+          "Primeros pasos",
+          "Vocabulario",
+          "Repaso"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/curso-span1001/01.webp",
+          "alt": {
+            "es": "Las seis lecciones iniciales",
+            "en": "Six introductory lessons"
+          }
+        },
+        {
+          "src": "assets/tools/curso-span1001/02.webp",
+          "alt": {
+            "es": "Lección de saludos y despedidas",
+            "en": "Greetings and farewells lesson"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "despistado",
+      "title": "¿Eres una persona despistada?",
+      "description": {
+        "en": "Interview a partner about everyday mishaps, find out their result and practise the present perfect with follow-up grammar activities.",
+        "es": "Entrevista a un compañero sobre despistes cotidianos, descubre su resultado y practica el pretérito perfecto con actividades de gramática."
+      },
+      "link": "https://balpomorelitm.github.io/despistado/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Present perfect",
+          "Speaking",
+          "In pairs"
+        ],
+        "es": [
+          "Pretérito perfecto",
+          "Expresión oral",
+          "En parejas"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/despistado/01.webp",
+          "alt": {
+            "es": "Entrevista sobre despistes cotidianos",
+            "en": "Interview about everyday mishaps"
+          }
+        },
+        {
+          "src": "assets/tools/despistado/02.webp",
+          "alt": {
+            "es": "Resultado y actividades de gramática",
+            "en": "Results and grammar activities"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "repaso-pp1-span1002",
+      "title": "Repaso PP1 · SPAN1002",
+      "description": {
+        "en": "Review common errors with explanation cards, practice exercises, text correction and reverse translation.",
+        "es": "Repasa errores frecuentes con tarjetas explicativas, ejercicios, corrección de textos y traducción inversa."
+      },
+      "link": "https://balpomorelitm.github.io/repaso-pp1-SPAN1002/",
+      "courses": [
+        "SPAN1002"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Revision",
+          "Grammar",
+          "Writing"
+        ],
+        "es": [
+          "Repaso",
+          "Gramática",
+          "Escritura"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/repaso-pp1-span1002/01.webp",
+          "alt": {
+            "es": "Tarjetas de errores frecuentes",
+            "en": "Common error cards"
+          }
+        },
+        {
+          "src": "assets/tools/repaso-pp1-span1002/02.webp",
+          "alt": {
+            "es": "Ejercicios de práctica",
+            "en": "Practice exercises"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "repaso-pp1-span2002",
+      "title": "Repaso PP1 · SPAN2002",
+      "description": {
+        "en": "Practise common errors from Progress Test 1 through revision cards, grammar exercises, text correction and translation.",
+        "es": "Practica errores frecuentes de la Prueba de Progreso 1 con tarjetas de repaso, ejercicios de gramática, corrección y traducción."
+      },
+      "link": "https://balpomorelitm.github.io/pp1repaso2002.2026/",
+      "courses": [
+        "SPAN2002"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Revision",
+          "Past tenses",
+          "Writing"
+        ],
+        "es": [
+          "Repaso",
+          "Pasados",
+          "Escritura"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/repaso-pp1-span2002/01.webp",
+          "alt": {
+            "es": "Tarjetas de repaso de los pasados",
+            "en": "Past tense revision cards"
+          }
+        },
+        {
+          "src": "assets/tools/repaso-pp1-span2002/02.webp",
+          "alt": {
+            "es": "Ejercicios de práctica",
+            "en": "Practice exercises"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "mocktest-span1002",
+      "title": "Práctica PP2 · SPAN1002",
+      "description": {
+        "en": "Practise listening, reading, grammar, vocabulary and writing with a selection of exam-style tasks and answer checks.",
+        "es": "Practica comprensión oral y escrita, gramática, vocabulario y escritura con una selección de tareas de examen y corrección de respuestas."
+      },
+      "link": "https://mocktestsyear1.netlify.app/web/index.html",
+      "courses": [
+        "SPAN1002"
+      ],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Exam practice",
+          "Revision",
+          "Listening"
+        ],
+        "es": [
+          "Exámenes",
+          "Repaso",
+          "Comprensión oral"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/mocktest-span1002/01.webp",
+          "alt": {
+            "es": "Listening practice",
+            "en": "Listening practice"
+          }
+        },
+        {
+          "src": "assets/tools/mocktest-span1002/02.webp",
+          "alt": {
+            "es": "Práctica de comprensión lectora",
+            "en": "Reading practice"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "atrevetetete",
+      "title": "Atrévete · Imperativos",
+      "description": {
+        "en": "Practise imperatives and listening with the Calle 13 song. Complete the gaps, check your answers and explore cultural glosses.",
+        "es": "Practica imperativos y comprensión oral con la canción de Calle 13. Completa los huecos, comprueba tus respuestas y explora las glosas culturales."
+      },
+      "link": "https://balpomorelitm.github.io/atrevetetete/",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Listening",
+          "Imperatives",
+          "Music"
+        ],
+        "es": [
+          "Comprensión oral",
+          "Imperativos",
+          "Música"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/atrevetetete/01.webp",
+          "alt": {
+            "es": "Canción con huecos de imperativo",
+            "en": "Song with imperative gaps"
+          }
+        },
+        {
+          "src": "assets/tools/atrevetetete/02.webp",
+          "alt": {
+            "es": "Pistas y revisión de respuestas",
+            "en": "Hints and answer checking"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "tarjetastabu",
+      "title": "Tabú Cards",
+      "description": {
+        "en": "Describe the word without saying the forbidden clues. Choose A1/A2 or B1/B2 cards and set a timer for your round.",
+        "es": "Describe la palabra sin decir las pistas prohibidas. Elige tarjetas de A1/A2 o B1/B2 y ajusta el tiempo de cada ronda."
+      },
+      "link": "https://balpomorelitm.github.io/tarjetastabu/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "Speaking",
+          "In teams"
+        ],
+        "es": [
+          "Vocabulario",
+          "Expresión oral",
+          "En equipos"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/tarjetastabu/01.webp",
+          "alt": {
+            "es": "Selección de nivel y duración",
+            "en": "Level and round time selection"
+          }
+        },
+        {
+          "src": "assets/tools/tarjetastabu/02.webp",
+          "alt": {
+            "es": "Tarjeta de palabras prohibidas",
+            "en": "Forbidden words card"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "quarto-numerico",
+      "title": "Quarto Numérico",
+      "description": {
+        "en": "Choose a piece for your opponent and build a line of matching characteristics. Say or write the numbers in Spanish as you play.",
+        "es": "Elige una pieza para tu oponente y forma una línea con características compartidas. Di o escribe los números en español mientras juegas."
+      },
+      "link": "https://balpomorelitm.github.io/quarto-numerico/",
+      "courses": [],
+      "type": "game",
+      "tags": {
+        "en": [
+          "Numbers",
+          "Strategy",
+          "In pairs"
+        ],
+        "es": [
+          "Números",
+          "Estrategia",
+          "En parejas"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/quarto-numerico/01.webp",
+          "alt": {
+            "es": "Partida de Quarto Numérico en el tablero clásico",
+            "en": "Quarto Numérico game on the classic board"
+          }
+        },
+        {
+          "src": "assets/tools/quarto-numerico/02.webp",
+          "alt": {
+            "es": "Modo de escritura de números en español en el tablero de 3×3",
+            "en": "Spanish number writing mode on the 3×3 board"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "sustantivos",
+      "title": "Sustantivos: artículos y cantidades",
+      "description": {
+        "en": "Practise noun quantification and articles with interactive grammar exercises and answer checking.",
+        "es": "Practica la cuantificación de los sustantivos y el uso de artículos con ejercicios interactivos y corrección de respuestas."
+      },
+      "link": "https://balpomorelitm.github.io/recursosele/herramientas/clasificador-sustantivos/nouns.html",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Grammar",
+          "Articles",
+          "Quantifiers"
+        ],
+        "es": [
+          "Gramática",
+          "Artículos",
+          "Cuantificadores"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/sustantivos/01.webp",
+          "alt": {
+            "es": "Ejercicios de cuantificación",
+            "en": "Quantification exercises"
+          }
+        },
+        {
+          "src": "assets/tools/sustantivos/02.webp",
+          "alt": {
+            "es": "Ejercicios de artículos",
+            "en": "Article exercises"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
+    },
+    {
+      "id": "ejercicios-unidades",
+      "title": "Ejercicios de español · Unidades 1–3",
+      "description": {
+        "en": "Practise vocabulary, grammar and pronunciation through interactive exercise cards for three introductory units.",
+        "es": "Practica vocabulario, gramática y pronunciación con tarjetas de ejercicios interactivos de tres unidades iniciales."
+      },
+      "link": "https://balpomorelitm.github.io/recursosele/spanish-exercises/index.html",
+      "courses": [],
+      "type": "activity",
+      "tags": {
+        "en": [
+          "Vocabulary",
+          "Grammar",
+          "Pronunciation"
+        ],
+        "es": [
+          "Vocabulario",
+          "Gramática",
+          "Pronunciación"
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "assets/tools/ejercicios-unidades/01.webp",
+          "alt": {
+            "es": "Selección de unidades",
+            "en": "Unit selection"
+          }
+        },
+        {
+          "src": "assets/tools/ejercicios-unidades/02.webp",
+          "alt": {
+            "es": "Ejercicios de la primera unidad",
+            "en": "First unit exercises"
+          }
+        }
+      ],
+      "dateAdded": "2026-09-30"
     }
-  ],
-  "metadata": {
-    "version": "2.0",
-    "lastUpdated": "2025-08-28",
-    "totalTools": 9
-  }
+  ]
 }

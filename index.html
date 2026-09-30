@@ -1,117 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish Learning Tools - University of Hong Kong</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&family=Knewave&family=Darumadrop+One&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1 class="main-title" id="mainTitle">
-                <span class="title-word" data-es="HERRAMIENTAS PARA APRENDER ESPAÑOL" data-en="SPANISH LEARNING TOOLS">SPANISH LEARNING TOOLS</span>
-            </h1>
-            <p class="subtitle" data-es="Departamento de Español, SMLC, HKU" data-en="Spanish Department, SMLC, HKU">Spanish Department, SMLC, HKU</p>
-            
-            <!-- Botón del departamento -->
-            <div class="department-link">
-                <a href="https://spanish.hku.hk/" target="_blank" class="dept-btn">
-                    <span data-es="Visitar Programa de Español – HKU" data-en="Visit Spanish Programme – HKU">Visit Spanish Programme – HKU</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3V6H5c-2.21 0-4 1.79-4 4v7c0 2.21 1.79 4 4 4h7c2.21 0 4-1.79 4-4v-3h-2v3c0 1.1-.9 2-2 2z"/>
-                    </svg>
-                </a>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#174b41" />
+    <meta
+      name="description"
+      content="Games, interactive stories and practice tools for learning Spanish at HKU. Find your course and start practising."
+    />
+    <meta property="og:title" content="Spanish Learning Tools · HKU" />
+    <meta
+      property="og:description"
+      content="A little Spanish, every day. Games, stories and practice for your course."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spanishhkutools.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://spanishhkutools.netlify.app/assets/social.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://spanishhkutools.netlify.app/" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Spanish Learning Tools · HKU</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#collection" data-i18n="skip">Skip to tools</a>
+    <header class="site-header wrap">
+      <a class="brand" href="./" aria-label="Spanish Learning Tools · Home"
+        ><span class="brand-mark" aria-hidden="true">es<span>.</span></span
+        ><span
+          >SPANISH PROGRAMME<small>THE UNIVERSITY OF HONG KONG</small></span
+        ></a
+      >
+      <nav class="header-actions" aria-label="Page settings">
+        <a
+          class="department"
+          href="https://spanish.hku.hk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span data-i18n="programme">Our programme</span> ↗</a
+        ><button
+          id="themeBtn"
+          class="icon-button"
+          aria-label="Switch to dark mode"
+        >
+          ◐</button
+        ><button
+          id="languageBtn"
+          class="language-button"
+          aria-label="Cambiar a español"
+        >
+          ES
+        </button>
+      </nav>
+    </header>
+    <main class="wrap">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div>
+          <p class="eyebrow" data-i18n="eyebrow">YOUR SPANISH TOOLKIT</p>
+          <h1 id="pageTitle">
+            <span data-i18n="headline">A little practice.</span><br /><em
+              data-i18n="headlineAccent"
+              >Mucho español.</em
+            >
+          </h1>
+          <p class="hero-description" data-i18n="intro">
+            Games, stories and a helping hand. Find your course and make Spanish
+            part of your day.
+          </p>
         </div>
-
-        <div class="controls">
-            <input type="text" class="search-bar" placeholder="Search tools..." data-placeholder-es="Buscar herramientas..." data-placeholder-en="Search tools..." id="searchInput">
-            
-            <div class="filters">
-                <div class="filter-group">
-                    <label data-es="Asignatura:" data-en="Subject:">Subject:</label>
-                    <select id="subjectFilter">
-                        <option value="" data-es="Todas" data-en="All">All</option>
-                        <option value="SPAN1001">SPAN1001</option>
-                        <option value="SPAN1002">SPAN1002</option>
-                        <option value="SPAN2001">SPAN2001</option>
-                        <option value="SPAN2002">SPAN2002</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label data-es="Tipo:" data-en="Type:">Type:</label>
-                    <select id="typeFilter">
-                        <option value="" data-es="Todos" data-en="All">All</option>
-                        <option value="Game" data-es="Juego" data-en="Game">Game</option>
-                        <option value="Exercise" data-es="Ejercicio" data-en="Exercise">Exercise</option>
-                        <option value="Resource" data-es="Recurso" data-en="Resource">Resource</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="controls-row">
-                <div class="sort-options">
-                    <button class="sort-btn active" data-sort="alphabetical" data-es="Alfabético" data-en="Alphabetical">Alphabetical</button>
-                    <button class="sort-btn" data-sort="date" data-es="Fecha" data-en="Date">Date</button>
-                    <button class="sort-btn" data-sort="usage" data-es="Más usadas" data-en="Most Used">Most Used</button>
-                </div>
-
-                <div class="right-controls">
-                    <div class="view-options">
-                        <label data-es="Vista:" data-en="View:">View:</label>
-                        <button class="view-btn active" data-view="card" data-es="Vista tarjetas" data-en="Card view" title="Card view">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="3" y="3" width="7" height="9" rx="1"/>
-                                <rect x="14" y="3" width="7" height="5" rx="1"/>
-                                <rect x="14" y="12" width="7" height="9" rx="1"/>
-                                <rect x="3" y="16" width="7" height="5" rx="1"/>
-                            </svg>
-                        </button>
-                        <button class="view-btn" data-view="grid" data-es="Vista cuadrícula" data-en="Grid view" title="Grid view">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="3" y="3" width="7" height="7" rx="1"/>
-                                <rect x="14" y="3" width="7" height="7" rx="1"/>
-                                <rect x="3" y="14" width="7" height="7" rx="1"/>
-                                <rect x="14" y="14" width="7" height="7" rx="1"/>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="theme-toggle">
-                        <button id="themeBtn" class="theme-btn" title="Switch to dark mode" data-tooltip-light="Switch to dark mode" data-tooltip-dark="Switch to light mode">
-                            <span class="sun-icon">☀️</span>
-                            <span class="moon-icon">🌙</span>
-                        </button>
-                    </div>
-
-                    <div class="language-toggle">
-                        <button id="languageBtn" class="lang-btn" title="Cambiar a español">
-                            🇪🇸 ES
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-note" aria-hidden="true">
+          <span class="note-star">✳</span
+          ><span data-i18n="note">Play. Read.\nSpeak. Repeat.</span
+          ><span class="note-bottom">¡VAMOS!</span>
         </div>
-
-        <div class="tools-grid card-view" id="toolsGrid">
-            <!-- Tools will be generated dynamically -->
+      </section>
+      <section class="discovery" aria-label="Find tools">
+        <form id="searchForm" role="search">
+          <label class="search-box" for="searchInput"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="m16 16 5 5" /></svg
+            ><span class="sr-only" data-i18n="searchLabel">Search tools</span
+            ><input
+              id="searchInput"
+              type="search"
+              autocomplete="off"
+              placeholder="What would you like to practise?"
+            /><kbd aria-hidden="true">⌕</kbd></label
+          >
+        </form>
+        <div class="course-row">
+          <span class="control-label" id="courseLabel" data-i18n="yourCourse"
+            >YOUR COURSE</span
+          >
+          <div
+            id="courseFilters"
+            class="course-filters"
+            role="group"
+            aria-labelledby="courseLabel"
+          ></div>
         </div>
-
-        <div class="stats" id="stats">
-            <span id="toolCount">8</span> <span data-es="herramientas disponibles" data-en="tools available">tools available</span>
+        <div class="filter-row">
+          <label class="select-label" for="typeFilter"
+            ><span data-i18n="type">Explore</span
+            ><select id="typeFilter"></select></label
+          ><label class="select-label" for="sortFilter"
+            ><span data-i18n="sort">Sort</span
+            ><select id="sortFilter">
+              <option value="alphabetical" data-i18n="alphabetical">A–Z</option>
+              <option value="date" data-i18n="newest">Recently added</option>
+            </select></label
+          ><button id="resetBtn" class="text-button" data-i18n="reset">
+            Clear filters</button
+          ><button id="shareFiltersBtn" class="share-filter text-button">
+            <span aria-hidden="true">↗</span>
+            <span data-i18n="shareSelection">Share selection</span>
+          </button>
         </div>
-
-        <footer class="footer">
-            <img src="smlc_logo.png" alt="SMLC Logo" class="footer-logo">
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+      </section>
+      <div class="collection-top">
+        <p id="resultCount" role="status" aria-live="polite"></p>
+        <span class="collection-hint" data-i18n="collectionHint"
+          >A good day to learn something.</span
+        >
+      </div>
+      <div id="collection" tabindex="-1">
+        <div class="empty-state" data-i18n="loading">Opening the toolkit…</div>
+      </div>
+      <noscript
+        ><p>
+          This catalogue needs JavaScript. Open
+          <a href="https://profebotsphku.streamlit.app/">ProfeBot</a> or
+          <a href="https://span1001palabrero.netlify.app/">SPAN1001 Palabrero</a
+          >.
+        </p></noscript
+      >
+      <aside class="closing-note">
+        <span aria-hidden="true">✳</span>
+        <p data-i18n="closing">
+          A few minutes. A new word. A little more confidence.
+        </p>
+        <a
+          href="https://pablotorrado.space/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span data-i18n="madeBy">Made by Pablo Torrado</span> ↗</a
+        >
+      </aside>
+    </main>
+    <footer class="site-footer wrap">
+      <img
+        src="smlc_logo.png"
+        width="190"
+        height="60"
+        alt="School of Modern Languages and Cultures, HKU"
+      />
+      <p data-i18n="footer">
+        Spanish Programme · School of Modern Languages and Cultures
+      </p>
+      <a
+        href="https://spanish.hku.hk/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >spanish.hku.hk ↗</a
+      >
+    </footer>
+    <dialog
+      id="galleryDialog"
+      class="gallery-dialog"
+      aria-labelledby="galleryTitle"
+    >
+      <div class="dialog-heading">
+        <h2 id="galleryTitle"></h2>
+        <button
+          id="closeGallery"
+          class="icon-button"
+          aria-label="Close gallery"
+        >
+          ×
+        </button>
+      </div>
+      <img id="galleryImage" alt="" />
+      <div class="gallery-bottom">
+        <button id="prevImage" class="icon-button" aria-label="Previous image">
+          ←
+        </button>
+        <p id="galleryCaption" aria-live="polite"></p>
+        <button id="nextImage" class="icon-button" aria-label="Next image">
+          →
+        </button>
+      </div>
+    </dialog>
+    <dialog id="shareDialog" class="share-dialog" aria-labelledby="shareTitle">
+      <div class="dialog-heading">
+        <h2 id="shareTitle" data-i18n="copyLink">Copy link</h2>
+        <button id="closeShare" class="icon-button" aria-label="Close">
+          ×
+        </button>
+      </div>
+      <label for="shareUrl" data-i18n="copyManual"
+        >Select and copy this link:</label
+      ><input id="shareUrl" type="url" readonly />
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>

@@ -1,461 +1,495 @@
-// Variables globales
-let tools = [];
-let filteredTools = [];
-let currentSort = 'alphabetical';
-let currentView = 'card';
-let currentLanguage = 'en'; // Inglés por defecto
-let currentTheme = 'light';
-
-// Traducciones
-const translations = {
-    noResults: {
-        es: 'No se encontraron herramientas con los criterios seleccionados.',
-        en: 'No tools found with the selected criteria.'
-    },
-    added: {
-        es: 'Añadido:',
-        en: 'Added:'
-    },
-    type: {
-        es: 'Tipo:',
-        en: 'Type:'
-    },
-    access: {
-        es: 'Acceder →',
-        en: 'Access →'
-    },
-    uses: {
-        es: 'usos',
-        en: 'uses'
-    },
-    loading: {
-        es: 'Cargando herramientas...',
-        en: 'Loading tools...'
-    },
-    error: {
-        es: 'Error al cargar las herramientas. Por favor, recarga la página.',
-        en: 'Error loading tools. Please refresh the page.'
-    }
+import { TYPES, selectTools, readState, selectionUrl } from "./catalog.js";
+const $ = (id) => document.getElementById(id);
+const copy = {
+  en: {
+    skip: "Skip to tools",
+    programme: "Our programme",
+    eyebrow: "YOUR SPANISH TOOLKIT",
+    headline: "A little practice.",
+    headlineAccent: "Mucho español.",
+    intro:
+      "Games, stories and a helping hand. Find your course and make Spanish part of your day.",
+    note: "Play. Read.\nSpeak. Repeat.",
+    searchLabel: "Search tools",
+    searchPlaceholder: "What would you like to practise?",
+    yourCourse: "YOUR COURSE",
+    type: "Explore",
+    sort: "Sort",
+    alphabetical: "A–Z",
+    newest: "Recently added",
+    reset: "Clear filters",
+    shareSelection: "Share selection",
+    collectionHint: "A good day to learn something.",
+    loading: "Opening the toolkit…",
+    closing: "A few minutes. A new word. A little more confidence.",
+    madeBy: "Made by Pablo Torrado",
+    footer:
+      "Spanish Programme · School of Modern Languages and Cultures\nThe University of Hong Kong",
+    all: "All courses",
+    general: "General",
+    allTypes: "All resources",
+    game: "Games",
+    reading: "Readings",
+    chatbot: "Chatbot",
+    activity: "Activities",
+    resource: "Resources",
+    open: "Open",
+    download: "Download",
+    share: "Share",
+    views: "screenshots",
+    gallery: "See screenshots of",
+    close: "Close",
+    prev: "Previous image",
+    next: "Next image",
+    copyLink: "Copy link",
+    copyManual: "Select and copy this link:",
+    copied: "Link copied. Ready to share!",
+    count: "resources to explore",
+    forCourse: "For",
+    forEveryone: "For every course",
+    generalDescription: "More ways to practise, whatever your course.",
+    empty: "No matches this time.",
+    emptyDescription: "Try another word, course or activity.",
+    error: "The toolkit could not be loaded.",
+    retry: "Try again",
+    dark: "Switch to dark mode",
+    light: "Switch to light mode",
+  },
+  es: {
+    skip: "Ir a las herramientas",
+    programme: "Nuestro programa",
+    eyebrow: "TU CAJA DE HERRAMIENTAS",
+    headline: "Un poco de práctica.",
+    headlineAccent: "Mucho español.",
+    intro:
+      "Juegos, historias y una mano amiga. Encuentra tu curso y haz del español parte de tu día.",
+    note: "Juega. Lee.\nHabla. Repite.",
+    searchLabel: "Buscar herramientas",
+    searchPlaceholder: "¿Qué te apetece practicar?",
+    yourCourse: "TU CURSO",
+    type: "Explorar",
+    sort: "Ordenar",
+    alphabetical: "A–Z",
+    newest: "Últimas incorporaciones",
+    reset: "Limpiar filtros",
+    shareSelection: "Compartir selección",
+    collectionHint: "Un buen día para aprender algo.",
+    loading: "Abriendo las herramientas…",
+    closing: "Unos minutos. Una palabra nueva. Un poco más de confianza.",
+    madeBy: "Creado por Pablo Torrado",
+    footer:
+      "Programa de Español · School of Modern Languages and Cultures\nUniversidad de Hong Kong",
+    all: "Todos los cursos",
+    general: "General",
+    allTypes: "Todos los recursos",
+    game: "Juegos",
+    reading: "Lecturas",
+    chatbot: "Chatbot",
+    activity: "Actividades",
+    resource: "Recursos",
+    open: "Abrir",
+    download: "Descargar",
+    share: "Compartir",
+    views: "capturas",
+    gallery: "Ver capturas de",
+    close: "Cerrar",
+    prev: "Imagen anterior",
+    next: "Imagen siguiente",
+    copyLink: "Copiar enlace",
+    copyManual: "Selecciona y copia este enlace:",
+    copied: "¡Enlace copiado! Listo para compartir.",
+    count: "recursos para explorar",
+    forCourse: "Para",
+    forEveryone: "Para todos los cursos",
+    generalDescription: "Más formas de practicar, sea cual sea tu curso.",
+    empty: "No hay resultados esta vez.",
+    emptyDescription: "Prueba otra palabra, curso o actividad.",
+    error: "No se han podido cargar las herramientas.",
+    retry: "Volver a intentar",
+    dark: "Cambiar a modo oscuro",
+    light: "Cambiar a modo claro",
+  },
 };
-
-// Función para cargar herramientas desde JSON
-async function loadTools() {
-    try {
-        const response = await fetch('tools.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        tools = data.tools;
-        filteredTools = [...tools];
-        
-        // Cargar contadores guardados después de cargar las herramientas
-        loadUsageCounts();
-        renderTools();
-        
-        console.log(`✅ Cargadas ${tools.length} herramientas desde tools.json`);
-        return true;
-    } catch (error) {
-        console.error('❌ Error cargando herramientas:', error);
-        
-        // Mostrar mensaje de error en la UI
-        const grid = document.getElementById('toolsGrid');
-        grid.innerHTML = `
-            <div class="no-results">
-                <h3>⚠️ ${translations.error[currentLanguage]}</h3>
-                <p>Error: ${error.message}</p>
-            </div>
-        `;
-        return false;
+let tools = [],
+  state = {
+    lang: "en",
+    q: "",
+    course: "",
+    type: "",
+    sort: "alphabetical",
+    tool: "",
+  },
+  galleryTool = null,
+  imageIndex = 0,
+  loaded = false,
+  toastTimer;
+const t = (key) => copy[state.lang][key] || key;
+function element(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+function stored(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+function save(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {}
+}
+let theme = stored("preferred-theme") === "dark" ? "dark" : "light";
+function updateTheme() {
+  document.documentElement.dataset.theme = theme;
+  $("themeBtn").ariaLabel = t(theme === "light" ? "dark" : "light");
+  $("themeBtn").title = $("themeBtn").ariaLabel;
+}
+function translate() {
+  document.documentElement.lang = state.lang;
+  document.title =
+    state.lang === "es"
+      ? "Herramientas de español · HKU"
+      : "Spanish Learning Tools · HKU";
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    node.textContent = t(node.dataset.i18n);
+  });
+  $("searchInput").placeholder = t("searchPlaceholder");
+  $("languageBtn").textContent = state.lang === "en" ? "ES" : "EN";
+  $("languageBtn").ariaLabel =
+    state.lang === "en" ? "Cambiar a español" : "Switch to English";
+  $("closeGallery").ariaLabel = t("close");
+  $("closeShare").ariaLabel = t("close");
+  $("prevImage").ariaLabel = t("prev");
+  $("nextImage").ariaLabel = t("next");
+  updateTheme();
+  renderControls();
+  if (galleryTool) renderGallery();
+}
+function renderControls() {
+  const courses = [...new Set(tools.flatMap((tool) => tool.courses))].sort();
+  $("courseFilters").replaceChildren(
+    ...["", ...courses, "general"].map((course) => {
+      const b = element(
+        "button",
+        "course-chip",
+        course === "" ? t("all") : course === "general" ? t("general") : course,
+      );
+      b.type = "button";
+      b.dataset.course = course;
+      b.setAttribute("aria-pressed", String(state.course === course));
+      b.addEventListener("click", () => {
+        state.course = course;
+        state.tool = "";
+        changed();
+        $("courseFilters")
+          .querySelector('[aria-pressed="true"]')
+          .focus({ preventScroll: true });
+      });
+      return b;
+    }),
+  );
+  $("typeFilter").replaceChildren(
+    ...["", ...TYPES].map((type) => {
+      const option = element("option", "", t(type || "allTypes"));
+      option.value = type;
+      return option;
+    }),
+  );
+  $("typeFilter").value = state.type;
+  $("sortFilter").value = state.sort;
+  $("searchInput").value = state.q;
+}
+function card(tool) {
+  const article = element(
+    "article",
+    "tool-card" + (tool.id === state.tool ? " is-target" : ""),
+  );
+  article.id = "tool-" + tool.id;
+  article.tabIndex = -1;
+  const shot = tool.screenshots[0];
+  const thumb = element("button", "thumbnail-button");
+  thumb.type = "button";
+  thumb.ariaLabel = t("gallery") + " " + tool.title;
+  const img = element("img");
+  img.src = shot.src;
+  img.alt = shot.alt[state.lang];
+  img.width = 1200;
+  img.height = 900;
+  img.loading = "lazy";
+  img.decoding = "async";
+  thumb.append(
+    img,
+    element(
+      "span",
+      "image-count",
+      tool.screenshots.length + " " + t("views") + " ↗",
+    ),
+  );
+  thumb.addEventListener("click", () => {
+    galleryTool = tool;
+    imageIndex = 0;
+    renderGallery();
+    $("galleryDialog").showModal();
+  });
+  const body = element("div", "card-content");
+  const eyebrow = element("div", "card-eyebrow");
+  eyebrow.append(
+    element("span", "type-label", t(tool.type)),
+    element(
+      "span",
+      "card-course",
+      tool.courses.length ? tool.courses.join(" · ") : t("general"),
+    ),
+  );
+  body.append(
+    eyebrow,
+    element("h3", "tool-title", tool.title),
+    element("p", "tool-description", tool.description[state.lang]),
+  );
+  const tags = element("div", "tool-tags");
+  tool.tags[state.lang]
+    .slice(0, 3)
+    .forEach((tag) => tags.append(element("span", "tag", tag)));
+  body.append(tags);
+  const footer = element("div", "tool-footer");
+  function link(url, text, cls) {
+    const a = element("a", cls, text);
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    return a;
+  }
+  if (tool.variants?.length) {
+    const variants = element("div", "variant-links");
+    for (const variant of tool.variants) {
+      const a = link(
+        variant.link,
+        variant.label + " ↗",
+        "variant-link" +
+          (state.course === variant.course ? " is-selected" : ""),
+      );
+      a.ariaLabel = t("open") + " " + tool.title + " " + variant.label;
+      variants.append(a);
     }
+    footer.append(variants);
+  } else {
+    const a = link(tool.link, "", "open-link");
+    a.append(
+      element("span", "", t(tool.download ? "download" : "open")),
+      element("span", "", "↗"),
+    );
+    a.ariaLabel = t(tool.download ? "download" : "open") + " " + tool.title;
+    footer.append(a);
+  }
+  const share = element("button", "share-tool", "⧉");
+  share.type = "button";
+  share.ariaLabel = t("share") + " " + tool.title;
+  share.title = share.ariaLabel;
+  share.addEventListener("click", () =>
+    shareUrl(selectionUrl(location.href, state, tool).href),
+  );
+  footer.append(share);
+  body.append(footer);
+  article.append(thumb, body);
+  return article;
 }
-
-// Función para mostrar loading
-function showLoading() {
-    const grid = document.getElementById('toolsGrid');
-    grid.innerHTML = `
-        <div class="no-results">
-            <h3>⏳ ${translations.loading[currentLanguage]}</h3>
-        </div>
-    `;
-}
-
-// Función para obtener el texto localizado
-function getLocalizedText(textObj) {
-    if (typeof textObj === 'object' && textObj[currentLanguage]) {
-        return textObj[currentLanguage];
+function render() {
+  if (!loaded) return;
+  const selected = selectTools(tools, state);
+  $("resultCount").textContent = selected.length + " " + t("count");
+  const host = $("collection");
+  host.replaceChildren();
+  if (!selected.length) {
+    const box = element("div", "empty-state");
+    box.append(
+      element("h2", "", t("empty")),
+      element("p", "", t("emptyDescription")),
+    );
+    const b = element("button", "", t("reset"));
+    b.onclick = clearFilters;
+    box.append(b);
+    host.append(box);
+    return;
+  }
+  function section(items, title, description) {
+    if (!items.length) return;
+    const section = element("section");
+    if (title) {
+      const heading = element("div", "section-heading");
+      heading.append(
+        element("h2", "", title),
+        element("span", "", String(items.length)),
+      );
+      section.append(heading);
+      if (description)
+        section.append(element("p", "section-description", description));
     }
-    return textObj; // Fallback si no es un objeto bilingüe
+    const grid = element("div", "tools-grid");
+    grid.append(...items.map(card));
+    section.append(grid);
+    host.append(section);
+  }
+  if (state.course && state.course !== "general") {
+    section(
+      selected.filter((x) => x.courses.includes(state.course)),
+      t("forCourse") + " " + state.course,
+    );
+    section(
+      selected.filter((x) => !x.courses.length),
+      t("forEveryone"),
+      t("generalDescription"),
+    );
+  } else section(selected);
 }
-
-// Función para cargar contadores guardados
-function loadUsageCounts() {
-    tools.forEach(tool => {
-        const count = parseInt(localStorage.getItem(`tool_usage_${tool.id}`) || '0');
-        tool.usageCount = count;
+function changed() {
+  history.replaceState(null, "", selectionUrl(location.href, state));
+  renderControls();
+  render();
+}
+function clearFilters() {
+  Object.assign(state, {
+    q: "",
+    course: "",
+    type: "",
+    sort: "alphabetical",
+    tool: "",
+  });
+  changed();
+}
+function renderGallery() {
+  const shot = galleryTool.screenshots[imageIndex];
+  $("galleryTitle").textContent = galleryTool.title;
+  $("galleryImage").src = shot.src;
+  $("galleryImage").alt = shot.alt[state.lang];
+  $("galleryCaption").textContent =
+    imageIndex +
+    1 +
+    " / " +
+    galleryTool.screenshots.length +
+    " · " +
+    shot.alt[state.lang];
+  $("prevImage").disabled = $("nextImage").disabled =
+    galleryTool.screenshots.length < 2;
+}
+function advance(delta) {
+  imageIndex =
+    (imageIndex + delta + galleryTool.screenshots.length) %
+    galleryTool.screenshots.length;
+  renderGallery();
+}
+async function shareUrl(url) {
+  try {
+    await navigator.clipboard.writeText(url);
+    $("toast").textContent = t("copied");
+    $("toast").hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => ($("toast").hidden = true), 3500);
+  } catch {
+    $("shareUrl").value = url;
+    $("shareDialog").showModal();
+    $("shareUrl").focus();
+    $("shareUrl").select();
+  }
+}
+function focusSharedTool() {
+  if (!state.tool) return;
+  const node = $("tool-" + state.tool);
+  if (node) {
+    requestAnimationFrame(() => {
+      node.scrollIntoView({ block: "center" });
+      node.focus({ preventScroll: true });
     });
+  }
 }
-
-// Función para incrementar y guardar contador
-function incrementUsage(toolId, toolName) {
-    const key = `tool_usage_${toolId}`;
-    const currentCount = parseInt(localStorage.getItem(key) || '0');
-    const newCount = currentCount + 1;
-    
-    // Guardar en localStorage
-    localStorage.setItem(key, newCount.toString());
-    
-    // Actualizar en memoria
-    const tool = tools.find(t => t.id === toolId);
-    if (tool) {
-        tool.usageCount = newCount;
-    }
-    
-    // Analytics opcional (si tienes Google Analytics)
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'tool_access', {
-            'tool_name': toolName,
-            'usage_count': newCount
-        });
-    }
-    
-    // Re-renderizar para mostrar contador actualizado
-    renderTools();
-    
-    // Log para debugging
-    console.log(`${toolName} usado ${newCount} veces`);
+async function load() {
+  $("collection").replaceChildren(element("div", "empty-state", t("loading")));
+  try {
+    const response = await fetch("tools.json");
+    if (!response.ok) throw new Error("Could not load catalogue");
+    const data = await response.json();
+    if (!Array.isArray(data.tools)) throw new Error("Invalid catalogue");
+    tools = data.tools;
+    state = readState(location.search, tools);
+    loaded = true;
+    translate();
+    render();
+    focusSharedTool();
+  } catch {
+    const box = element("div", "empty-state");
+    box.append(element("h2", "", t("error")));
+    const retry = element("button", "", t("retry"));
+    retry.onclick = load;
+    box.append(retry);
+    $("collection").replaceChildren(box);
+  }
 }
-
-// Función para obtener estadísticas
-function getUsageStats() {
-    const stats = tools.map(tool => ({
-        name: tool.title,
-        clicks: tool.usageCount
-    })).sort((a, b) => b.clicks - a.clicks);
-    
-    console.table(stats);
-    return stats;
-}
-
-// Función para resetear contadores (para testing)
-function resetAllCounters() {
-    tools.forEach(tool => {
-        localStorage.removeItem(`tool_usage_${tool.id}`);
-        tool.usageCount = 0;
-    });
-    renderTools();
-    console.log('Todos los contadores reseteados');
-}
-
-// Función para manejar saltos de línea inteligentes en el título
-function handleMobileTitle() {
-    if (window.innerWidth <= 768) {
-        const titleWord = document.querySelector('.title-word');
-        const titleText = titleWord.getAttribute(`data-${currentLanguage}`);
-        
-        let formattedTitle = titleText;
-        
-        // Reglas específicas para cada idioma
-        if (currentLanguage === 'es') {
-            // "HERRAMIENTAS PARA APRENDER ESPAÑOL" -> "HERRAMIENTAS PARA<br>APRENDER ESPAÑOL"
-            formattedTitle = titleText.replace('PARA APRENDER', 'PARA<br>APRENDER');
-        } else if (currentLanguage === 'en') {
-            // "SPANISH LEARNING TOOLS" -> "SPANISH<br>LEARNING TOOLS"
-            formattedTitle = titleText.replace('SPANISH LEARNING', 'SPANISH<br>LEARNING');
-        }
-        
-        // Limpiar título actual
-        titleWord.innerHTML = '';
-        
-        // Dividir por <br> y procesar cada línea
-        const lines = formattedTitle.split('<br>');
-        
-        lines.forEach((line, lineIndex) => {
-            if (lineIndex > 0) {
-                // Añadir salto de línea
-                const lineBreak = document.createElement('br');
-                titleWord.appendChild(lineBreak);
-            }
-            
-            // Añadir letras de esta línea
-            line.split('').forEach(letter => {
-                const letterSpan = document.createElement('span');
-                letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
-                letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
-                titleWord.appendChild(letterSpan);
-            });
-        });
-    } else {
-        // En desktop, usar el comportamiento normal
-        const titleWord = document.querySelector('.title-word');
-        const titleText = titleWord.getAttribute(`data-${currentLanguage}`);
-        titleWord.innerHTML = '';
-        
-        titleText.split('').forEach(letter => {
-            const letterSpan = document.createElement('span');
-            letterSpan.className = letter === ' ' ? 'title-letter space' : 'title-letter';
-            letterSpan.textContent = letter === ' ' ? '\u00A0' : letter;
-            titleWord.appendChild(letterSpan);
-        });
-    }
-}
-
-// Función para inicializar las letras del título
-function initializeTitle() {
-    handleMobileTitle();
-}
-
-// Escuchar cambios de tamaño de ventana
-window.addEventListener('resize', () => {
-    clearTimeout(window.resizeTimeout);
-    window.resizeTimeout = setTimeout(() => {
-        handleMobileTitle();
-    }, 250);
+let searchTimer;
+$("searchForm").addEventListener("submit", (e) => e.preventDefault());
+$("searchInput").addEventListener("input", (e) => {
+  state.q = e.target.value;
+  state.tool = "";
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    history.replaceState(null, "", selectionUrl(location.href, state));
+    render();
+  }, 100);
 });
-
-// Función para cargar tema guardado
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('preferred-theme');
-    if (savedTheme) {
-        currentTheme = savedTheme;
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeButton();
-    }
-}
-
-// Función para cambiar tema
-function toggleTheme() {
-    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('preferred-theme', currentTheme);
-    updateThemeButton();
-}
-
-// Función para actualizar el botón de tema
-function updateThemeButton() {
-    const themeBtn = document.getElementById('themeBtn');
-    if (currentTheme === 'dark') {
-        themeBtn.title = themeBtn.getAttribute('data-tooltip-dark') || 'Switch to light mode';
-    } else {
-        themeBtn.title = themeBtn.getAttribute('data-tooltip-light') || 'Switch to dark mode';
-    }
-}
-
-function renderTools() {
-    const grid = document.getElementById('toolsGrid');
-    const toolCount = document.getElementById('toolCount');
-    
-    if (filteredTools.length === 0) {
-        grid.innerHTML = `<div class="no-results">${translations.noResults[currentLanguage]}</div>`;
-        toolCount.textContent = '0';
-        return;
-    }
-
-    grid.innerHTML = filteredTools.map(tool => `
-        <div class="tool-card">
-            <div class="tool-header">
-                <h3 class="tool-title">${tool.title}</h3>
-                <div class="tool-meta">
-                    <span>${translations.added[currentLanguage]} ${formatDate(tool.dateAdded)}</span>
-                    <span>${translations.type[currentLanguage]} ${getLocalizedText(tool.type)}</span>
-                </div>
-            </div>
-            <p class="tool-description">${getLocalizedText(tool.description)}</p>
-            <div class="tool-tags">
-                ${getLocalizedText(tool.subjects).map(subject => `<span class="tag subject">${subject}</span>`).join('')}
-            </div>
-            <div class="tool-footer">
-                <a href="${tool.link}" 
-                   target="_blank" 
-                   class="visit-btn" 
-                   onclick="incrementUsage(${tool.id}, '${tool.title.replace(/'/g, "\\'")}'); return true;">
-                   ${translations.access[currentLanguage]}
-                </a>
-                <div class="usage-stats">
-                    <span class="usage-count">${tool.usageCount} ${translations.uses[currentLanguage]}</span>
-                </div>
-            </div>
-        </div>
-    `).join('');
-    
-    toolCount.textContent = filteredTools.length;
-}
-
-function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', options);
-}
-
-function sortTools(criteria) {
-    switch(criteria) {
-        case 'alphabetical':
-            filteredTools.sort((a, b) => a.title.localeCompare(b.title));
-            break;
-        case 'date':
-            filteredTools.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-            break;
-        case 'usage':
-            filteredTools.sort((a, b) => b.usageCount - a.usageCount);
-            break;
-    }
-    renderTools();
-}
-
-function filterTools() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const subjectFilter = document.getElementById('subjectFilter').value;
-    const typeFilter = document.getElementById('typeFilter').value;
-
-    filteredTools = tools.filter(tool => {
-        // Buscar en títulos y descripciones en ambos idiomas
-        const matchesSearch = tool.title.toLowerCase().includes(searchTerm) || 
-                            getLocalizedText(tool.description).toLowerCase().includes(searchTerm);
-        
-        // Verificar subjects en el idioma actual
-        const currentSubjects = getLocalizedText(tool.subjects);
-        const matchesSubject = !subjectFilter || currentSubjects.includes(subjectFilter);
-        
-        // Verificar type - usar solo el valor en inglés para consistencia
-        const matchesType = !typeFilter || tool.type.en === typeFilter;
-
-        return matchesSearch && matchesSubject && matchesType;
-    });
-
-    sortTools(currentSort);
-}
-
-function toggleLanguage() {
-    currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
-    
-    // Actualizar todos los elementos con data-es y data-en (excepto el título)
-    document.querySelectorAll('[data-es][data-en]:not(.title-word)').forEach(element => {
-        if (element.tagName === 'INPUT' && element.type === 'text') {
-            element.placeholder = element.getAttribute(`data-placeholder-${currentLanguage}`);
-        } else {
-            element.textContent = element.getAttribute(`data-${currentLanguage}`);
-        }
-    });
-    
-    // Actualizar el título principal con animación letra por letra
-    const titleWord = document.querySelector('.title-word');
-    const newTitle = titleWord.getAttribute(`data-${currentLanguage}`);
-    
-    // Limpiar título actual con animación
-    const currentLetters = titleWord.querySelectorAll('.title-letter, br');
-    currentLetters.forEach((letter, index) => {
-        setTimeout(() => {
-            letter.style.opacity = '0';
-            letter.style.transform = 'translateY(50px) rotate(180deg)';
-        }, index * 20);
-    });
-    
-    // Después de la animación de salida, crear nuevo título
-    setTimeout(() => {
-        handleMobileTitle();
-        
-        // Animar entrada del nuevo título
-        const newLetters = titleWord.querySelectorAll('.title-letter');
-        newLetters.forEach((letter, index) => {
-            letter.style.opacity = '0';
-            letter.style.transform = 'translateY(-50px) rotate(180deg)';
-            
-            setTimeout(() => {
-                letter.style.opacity = '1';
-                letter.style.transform = 'translateY(0) rotate(0deg)';
-                letter.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-            }, index * 50);
-        });
-    }, currentLetters.length * 20 + 200);
-    
-    // Actualizar el botón de idioma
-    const langBtn = document.getElementById('languageBtn');
-    if (currentLanguage === 'en') {
-        langBtn.innerHTML = '🇪🇸 ES';
-        langBtn.title = 'Cambiar a español';
-        document.documentElement.lang = 'en';
-    } else {
-        langBtn.innerHTML = '🇬🇧 EN';
-        langBtn.title = 'Switch to English';
-        document.documentElement.lang = 'es';
-    }
-    
-    // Actualizar tooltips del botón de tema
-    const themeBtn = document.getElementById('themeBtn');
-    if (currentLanguage === 'es') {
-        themeBtn.setAttribute('data-tooltip-light', 'Cambiar a modo oscuro');
-        themeBtn.setAttribute('data-tooltip-dark', 'Cambiar a modo claro');
-    } else {
-        themeBtn.setAttribute('data-tooltip-light', 'Switch to dark mode');
-        themeBtn.setAttribute('data-tooltip-dark', 'Switch to light mode');
-    }
-    updateThemeButton();
-    
-    // Actualizar el título de la página
-    document.title = currentLanguage === 'es' ? 
-        'Herramientas para Aprender Español - Universidad de Hong Kong' : 
-        'Spanish Learning Tools - University of Hong Kong';
-    
-    // Re-renderizar las herramientas con el nuevo idioma
-    renderTools();
-}
-
-function changeView(viewType) {
-    const grid = document.getElementById('toolsGrid');
-    currentView = viewType;
-    
-    // Actualizar clases del grid
-    grid.className = `tools-grid ${viewType}-view`;
-    
-    // Actualizar botones activos
-    document.querySelectorAll('.view-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.view === viewType) {
-            btn.classList.add('active');
-        }
-    });
-}
-
-// Event listeners
-document.getElementById('searchInput').addEventListener('input', filterTools);
-document.getElementById('subjectFilter').addEventListener('change', filterTools);
-document.getElementById('typeFilter').addEventListener('change', filterTools);
-
-document.querySelectorAll('.sort-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentSort = btn.dataset.sort;
-        sortTools(currentSort);
-    });
+$("typeFilter").addEventListener("change", (e) => {
+  state.type = e.target.value;
+  state.tool = "";
+  changed();
 });
-
-document.querySelectorAll('.view-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        changeView(btn.dataset.view);
-    });
+$("sortFilter").addEventListener("change", (e) => {
+  state.sort = e.target.value;
+  changed();
 });
-
-document.getElementById('languageBtn').addEventListener('click', toggleLanguage);
-document.getElementById('themeBtn').addEventListener('click', toggleTheme);
-
-// Inicializar la página
-async function initApp() {
-    // Mostrar loading
-    showLoading();
-    
-    // Cargar tema guardado
-    loadSavedTheme();
-    
-    // Inicializar título
-    initializeTitle();
-    
-    // Cargar herramientas desde JSON
-    const success = await loadTools();
-    
-    if (!success) {
-        console.error('❌ No se pudieron cargar las herramientas');
+$("resetBtn").onclick = clearFilters;
+$("languageBtn").onclick = () => {
+  state.lang = state.lang === "en" ? "es" : "en";
+  translate();
+  changed();
+};
+$("themeBtn").onclick = () => {
+  theme = theme === "light" ? "dark" : "light";
+  save("preferred-theme", theme);
+  updateTheme();
+};
+$("shareFiltersBtn").onclick = () =>
+  shareUrl(selectionUrl(location.href, state).href);
+$("closeGallery").onclick = () => $("galleryDialog").close();
+$("closeShare").onclick = () => $("shareDialog").close();
+$("prevImage").onclick = () => advance(-1);
+$("nextImage").onclick = () => advance(1);
+$("galleryDialog").addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    e.preventDefault();
+    advance(e.key === "ArrowLeft" ? -1 : 1);
+  }
+});
+for (const id of ["galleryDialog", "shareDialog"])
+  $(id).addEventListener("click", (e) => {
+    if (e.target === $(id)) {
+      const rect = $(id).getBoundingClientRect();
+      if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+      )
+        $(id).close();
     }
-}
-
-// Ejecutar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initApp);
+  });
+window.addEventListener("popstate", () => {
+  state = readState(location.search, tools);
+  translate();
+  render();
+  focusSharedTool();
+});
+state.lang =
+  new URLSearchParams(location.search).get("lang") === "es" ? "es" : "en";
+translate();
+load();

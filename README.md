@@ -1,59 +1,63 @@
-# Spanish Learning Tools - HKU 🎓
+# Spanish Learning Tools · HKU
 
-An interactive collection of educational tools for Spanish language learning from the Spanish Department, SMLC, University of Hong Kong.
+Catálogo de juegos, lecturas, actividades y recursos de español de Pablo Torrado para estudiantes de HKU.
 
-## 🌟 Features
+**Sitio público:** https://spanishhkutools.netlify.app/
 
-- **Bilingual interface** (Spanish/English) with dynamic switching
-- **Two view modes**: Detailed cards and compact grid
-- **Advanced filtering system** by subject, level, and type
-- **Multiple sorting options** by alphabetical, date, rating, and popularity
-- **Real-time search** by title and description
-- **Responsive design** optimized for mobile and tablets
-- **Interactive title** with 3D effects and hover animations
-- **HKU color theme** following university visual identity
+## Uso
 
+El buscador consulta títulos, descripciones, cursos y etiquetas en español e inglés, sin distinguir tildes ni mayúsculas. Al seleccionar un curso aparecen primero sus recursos específicos y después los generales. Se puede combinar con el tipo de actividad y ordenar alfabéticamente o por incorporación.
 
-## 🌐 GitHub Pages Deployment
+La interfaz comienza en inglés, permite cambiar a español y ofrece temas claro y oscuro. Las galerías se abren con teclado y admiten flechas y Escape. Compartir copia un enlace; si el navegador impide copiar, muestra el enlace para seleccionarlo. El catálogo funciona aunque el almacenamiento local esté bloqueado. No utiliza contadores de uso ni consultas a GitHub.
 
-1. Go to your repository settings
-2. Navigate to **Pages** in the sidebar
-3. Select **Deploy from a branch**
-4. Choose **main** as branch and **/ (root)** as folder
-5. Save changes
+Ejemplos para compartir:
 
-Your site will be available at: `https://your-username.github.io/spanish-learning-tools-hku`
+- Curso: `https://spanishhkutools.netlify.app/?course=SPAN1001`
+- Ficha y curso: `https://spanishhkutools.netlify.app/?tool=palabrero&course=SPAN1002`
+- Español: añadir `&lang=es` al enlace anterior.
 
-## 🎯 Functionality
+Palabrero reúne SPAN1001, SPAN1002 y SPAN2001 en una ficha. ProfeBot tiene un único acceso y está asignado exclusivamente a SPAN1001 y SPAN1002.
 
-### Search and Filters
-- **Search bar**: Search by title or description
-- **Subject filter**: SPAN1001, SPAN2001, General, Grammar, Vocabulary
-- **Level filter**: A1, A2, B1, B2, All levels
-- **Type filter**: Game, Exercise, Resource
+## Desarrollo y pruebas
 
-### View Modes
-- **Card View**: Complete and detailed information
-- **Grid View**: Compact for quick overview
+Requiere Node.js 22 o posterior. La web resultante es HTML, CSS y JavaScript estáticos, sin servidor de aplicación.
 
-### Sorting
-- **Alphabetical**: By tool name
-- **Date**: By addition date (newest first)
-- **Rating**: By score (highest first)
-- **Popularity**: By usage count
+```sh
+npm ci
+npm run build
+npm start
+```
 
-## 🎭 Interactive Effects
+Vista previa: http://127.0.0.1:4173/
 
-- **Animated title**: Each word rotates 360° with golden light effects
-- **Hover effects**: Cards with elevation and border color change
-- **Smooth transitions**: In filters, sorting, and view switching
-- **Animated language change**: Word rotation when switching languages
+```sh
+npm test
+npm run test:browser
+```
 
+Las pruebas de navegador usan Microsoft Edge mediante Playwright. Si no está instalado, ejecutar `npx playwright install msedge` o cambiar el canal en `playwright.config.js`. Comprueban móvil y escritorio, filtros, enlaces compartidos, galerías, imágenes, idiomas, temas, errores de carga y almacenamiento bloqueado.
 
-## 👥 Credits
+## Mantener el catálogo
 
-Developed for the **Spanish Department, SMLC, University of Hong Kong**
+`tools.json` es la única fuente del contenido público. Cada ficha contiene:
 
----
+- `id`: identificador estable, sin tildes; conservarlo para no romper enlaces compartidos.
+- `title`, `description.en/es`, `tags.en/es`: contenido bilingüe. Los nombres propios pueden conservar su idioma.
+- `courses`: identificadores como `SPAN1001`; una lista vacía significa **General**.
+- `type`: `game`, `reading`, `chatbot`, `activity` o `resource`.
+- `link`: producción HTTPS verificada o documento local con `download: true`.
+- `screenshots`: dos o tres imágenes WebP locales con `src` y `alt.en/es`.
+- `dateAdded`: fecha de incorporación `YYYY-MM-DD`.
+- Opcionalmente `variants`: accesos con `course`, `label` y `link`; y `aliases` para búsquedas alternativas.
 
-**Have suggestions or found a bug?** Open an [issue](https://github.com/your-username/spanish-learning-tools-hku/issues) or contact the department.
+Comprobar una interacción principal antes de añadir una herramienta. Preferir el enlace de Netlify cuando sea la producción verificada. Agrupar versiones del mismo proyecto; asignar cursos según el contenido o una decisión expresa, no por suponer un nivel. Revisar visualmente las capturas y evitar datos personales. Las imágenes están en `assets/tools/<id>/`; los documentos, en `assets/documents/`.
+
+La revisión inicial de septiembre de 2026 reúne 46 fichas y 112 imágenes. La plantilla descargable Lunático conserva una ilustración del portfolio y dos vistas del contenido de sus tablas; estas vistas no reproducen el formato de impresión de Word.
+
+El inventario de los 83 repositorios, las incidencias y la evidencia de revisión se guardan localmente en `.maintenance/inventory.html`, `.maintenance/inventory.json` y `.maintenance/verification.json`. Esta carpeta está excluida de Git y del despliegue porque también documenta herramientas internas. El portfolio es una fuente de consulta y no forma parte de este despliegue.
+
+## Publicación
+
+El sitio Netlify existente está conectado a la rama `main`. `netlify.toml` define `npm run build` y la carpeta de publicación `dist/`. El proceso de compilación copia únicamente los archivos públicos y `assets/`; excluye pruebas, inventarios y archivos de trabajo.
+
+La reparación de Palabrero SPAN1002 pertenece a su repositorio independiente y se publicó antes de esta actualización. Conserva el tablero cuando falta una palabra diaria y permite acceder a práctica y archivo sin modificar el calendario de palabras.

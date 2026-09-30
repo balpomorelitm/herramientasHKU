@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.maintenance/
+test-results/
+playwright-report/
+.netlify/
